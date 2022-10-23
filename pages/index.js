@@ -1,9 +1,10 @@
 // index.html
 import { useState } from 'react';
-function Header({ title }) {
-  return <h1>{title ? title : 'Default title'}</h1>;
-}
-
+import { ReplaceHead } from ".//layout/head/head.js";
+import { Header } from ".//layout/header/header.js";
+const title = "Home | The Vegan Blog";
+const pageTitle = "The Vegan Blog";
+const description = "The Vegan Blog is a one stop destination for all your vegan essentials";
 export default function HomePage() {
   const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
 
@@ -14,15 +15,16 @@ export default function HomePage() {
   }
 
   return (
-    <div>
-      <Header title="Develop. Preview. Ship. 🚀" />
-      <ul>
-        {names.map((name) => (
-          <li key={name}>{name}</li>
-        ))}
-      </ul>
+      <div>
+        <ReplaceHead canonical={true} description={description} title={title}></ReplaceHead>
+        <Header pagetitle={pageTitle} />         
+        <ul>
+          {names.map((name) => (
+            <li key={name}>{name}</li>
+          ))}
+        </ul>
 
-      <button onClick={handleClick}>Like ({likes})</button>
-    </div>
-  );
+        <button onClick={handleClick}>Like ({likes})</button>
+      </div>
+  )
 }
