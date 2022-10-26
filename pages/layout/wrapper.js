@@ -1,5 +1,5 @@
 
-export default function AuxContext(props) {
-    <div>{props.children}</div>
+export function Wrapper(props) {
+    return <div className={props.className}>{props.children}</div>
 }
 
