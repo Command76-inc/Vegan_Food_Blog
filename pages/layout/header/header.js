@@ -12,5 +12,6 @@ export function Header(props) {
     <Navbar />
     <Banner></Banner>
   </header>
+  <div>Another page break</div>
   )
 }
