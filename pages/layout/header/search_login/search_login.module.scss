@@ -1,0 +1,33 @@
+.container {
+    color: white;
+
+    & a {
+        color: white;
+
+        &:hover {
+            color: gainsboro;
+        }
+
+    }
+
+    .searchbar {
+        border-radius: 10px;
+        padding: 5px;
+        width: 200px;
+        margin: 20px;
+        box-shadow: 1px 1px 1px black;
+    }
+
+    .login {
+        padding: 10px;
+        border: 1px solid darkgreen;
+        background: darkgreen;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px black;
+
+        &:hover {
+            background-color: seagreen;
+            cursor: pointer;
+        }
+    }
+}

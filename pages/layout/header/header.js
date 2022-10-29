@@ -1,15 +1,20 @@
-import { Navbar } from "./navigation/navigation.js";
-import { Banner } from "./banner/banner.js"
+import { Banner } from "./banner/banner.js";
+import { NavLinks } from "./navigation/navigation.js";
+import { SearchLogin } from "./search_login/search_login.js"
+import  styles from "./header.module.scss";
 
 function PageTitle({ pagetitle }) {
-    return <h1>{pagetitle ? pagetitle : 'Default title'}</h1>
+    return <h1 className={styles.title}>{pagetitle ? pagetitle : 'Default title'}</h1>
 }
 
 export function Header(props) {
   return (
   <header>
-    <PageTitle pagetitle={props.pagetitle} />
-    <Navbar />
+    <div className={styles.topbar}>
+      <PageTitle pagetitle={props.pagetitle} />
+      <NavLinks />
+      <SearchLogin />
+    </div>
     <Banner></Banner>
   </header>
   )

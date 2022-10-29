@@ -1,4 +1,4 @@
-import styles from "./navigation.module.scss"
+import styles from "./search_login.module.scss"
 
 const navLinks = {
     home: "./",
@@ -16,8 +16,11 @@ function buildLinks(linksObject) {
   return linksArray
 }
 
-export function NavLinks(props) {
+export function SearchLogin(props) {
     return (
-        <nav className={styles.navigation} role="navigation">{buildLinks(navLinks)}</nav>
+        <div className={styles.container}>
+            <input type="text" placeholder="Search..." className={styles.searchbar}/>
+            <span className={styles.login}>Login</span>
+        </div>
     )
 }
