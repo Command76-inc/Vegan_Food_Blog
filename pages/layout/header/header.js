@@ -4,7 +4,7 @@ import { SearchLogin } from "./search_login/search_login.js"
 import  styles from "./header.module.scss";
 
 function PageTitle({ pagetitle }) {
-    return <h1 className={styles.title}>{pagetitle ? pagetitle : 'Default title'}</h1>
+    return <h1 className={styles.title}>{pagetitle ? pagetitle : 'The Vegan Blog'}</h1>
 }
 
 export function Header(props) {
@@ -15,7 +15,7 @@ export function Header(props) {
       <NavLinks />
       <SearchLogin />
     </div>
-    <Banner></Banner>
+    <Banner showBanner={props.showBanner}></Banner>
   </header>
   )
 }

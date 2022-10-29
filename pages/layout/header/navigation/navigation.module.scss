@@ -1,13 +1,22 @@
 .navigation {
     color: white;
 
-    & a {
-        color: white;
-        padding: 0 20px;
+    li {
+        list-style-type: none;
+        display: inline;
 
-        &:hover {
-            color: gainsboro;
+        & a {
+            color: white;
+            margin: 0 20px;
+            background: transparent;
+            border: 0;
+            font-size: inherit;
+            text-decoration: none;
+
+            &:hover {
+                color: gainsboro;
+            }
+
         }
-
     }
 }
