@@ -9,7 +9,7 @@ export default function LocalDiningAreas(props) {
     return (
     <Wrapper className={props.className}>
         <ReplaceHead canonical={true} description={description} title={title}></ReplaceHead>
-        <Header showBanner={true}/>  
+        <Header showBanner={false}/>  
         <h2>Local Dining</h2>
     </Wrapper>
     )

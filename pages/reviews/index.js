@@ -9,7 +9,7 @@ export default function Reviews(props) {
     return (
     <Wrapper className={props.className}>
         <ReplaceHead canonical={true} description={description} title={title}></ReplaceHead>
-        <Header showBanner={true}/>  
+        <Header showBanner={false}/>  
         <h2>Reviews</h2>
     </Wrapper>
     )

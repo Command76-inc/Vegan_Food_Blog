@@ -9,7 +9,7 @@ export default function AllPosts(props) {
     return (
     <Wrapper className={props.className}>
         <ReplaceHead canonical={true} description={description} title={title}></ReplaceHead>
-        <Header showBanner={true}/>  
+        <Header showBanner={false}/>  
         <h2>All Posts</h2>
     </Wrapper>
     )
