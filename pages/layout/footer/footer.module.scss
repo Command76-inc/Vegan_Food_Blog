@@ -1,0 +1,13 @@
+.footer {
+    border-top: 3px dashed darkgrey;
+    text-align: center;
+    padding: 20px 0;
+
+    & h2, div:last-of-type { 
+        transform: translateY(50%)
+    }
+
+    & div:first-of-type {
+        transform: translateY(25%);
+    }
+}
