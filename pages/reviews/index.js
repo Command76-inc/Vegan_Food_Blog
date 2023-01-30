@@ -11,7 +11,6 @@ export default function Reviews(props) {
         <ReplaceHead canonical={true} description={description} title={title}></ReplaceHead>
         <Header showBanner={false}/>  
         <h2>Reviews</h2>
-        <BreakIt />
     </Wrapper>
     )
 }
