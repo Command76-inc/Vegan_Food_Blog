@@ -10,7 +10,6 @@ export default function Reviews(props) {
           </Applications/AMPPS/www/Vegan Food Blog>
 
     <Wrapper className={props.className}>
-    <oisdisidsidsid></oisdisidsidsid>
         <ReplaceHead canonical={true} description={description} title={title}></ReplaceHead>
         <Header showBanner={false}/>  
         <h2>Reviews</h2>
