@@ -11,7 +11,6 @@ export default function Recipes(props) {
         <ReplaceHead canonical={true} description={description} title={title}></ReplaceHead>
         <Header showBanner={false}/>  
         <h2>Recipes</h2>
-        <<BreakIt />>
     </Wrapper>
     )
 }

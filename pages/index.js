@@ -9,7 +9,6 @@ const description = "The Vegan Blog is a one stop destination for all your vegan
 export default function HomePage() {
   return (
       <div>
-        <Breakit />
         <ReplaceHead canonical={true} description={description} title={title}></ReplaceHead>
         <Header pagetitle={pageTitle} showBanner={true}/>
         <main className={styles.main}>
