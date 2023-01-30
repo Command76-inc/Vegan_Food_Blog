@@ -8,7 +8,6 @@ const description = "The Vegan Blog is a one stop destination for all your vegan
 export default function Reviews(props) {
     return (
     <Wrapper className={props.className}>
-    <oisdisidsidsid></oisdisidsidsid>
         <ReplaceHead canonical={true} description={description} title={title}></ReplaceHead>
         <Header showBanner={false}/>  
         <h2>Reviews</h2>
