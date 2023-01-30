@@ -8,6 +8,8 @@ const pageTitle = "The Vegan Blog";
 const description = "The Vegan Blog is a one stop destination for all your vegan essentials";
 export default function HomePage() {
   return (
+      </Applications/AMPPS/www/Vegan Food Blog>
+
       <div>
         <ReplaceHead canonical={true} description={description} title={title}></ReplaceHead>
         <Header pagetitle={pageTitle} showBanner={true}/>
