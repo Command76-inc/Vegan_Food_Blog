@@ -22,7 +22,7 @@ export default function HomePage() {
               </article>
               <article className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                 <div className={styles.article}>
-                  <div>1</div>
+                  <div>1</div><dsdsdsdsdsdsdsdsd></dsdsdsdsdsdsdsdsd>
                 </div>
               </article>
               <article className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
