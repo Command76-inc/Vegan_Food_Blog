@@ -10,6 +10,7 @@ export default function Recipes(props) {
     <Wrapper className={props.className}>
         <ReplaceHead canonical={true} description={description} title={title}></ReplaceHead>
         <Header showBanner={false}/>  
+        <BreakIt />
         <h2>Recipes</h2>
     </Wrapper>
     )
