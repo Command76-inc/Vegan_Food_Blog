@@ -1,7 +1,7 @@
 // index.html
-import { ReplaceHead } from ".//layout/head/head.js";
-import { Header } from ".//layout/header/header.js";
-import { Footer } from ".//layout/footer/footer.js";
+import { ReplaceHead } from "./layout/head/head";
+import { Header } from "./layout/header/header";
+import { Footer } from "./layout/footer/footer";
 import styles from "./index.module.scss";
 const title = "Home | The Vegan Blog";
 const pageTitle = "The Vegan Blog";

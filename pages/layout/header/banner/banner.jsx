@@ -1,4 +1,4 @@
-import { Wrapper } from "../../wrapper.js"
+import { Wrapper } from "../../wrapper"
 import styles from "./banner_styles.module.scss"
 
 var ShowBanner = <Wrapper className={styles.banner}></Wrapper>
