@@ -1,34 +1,53 @@
 .container {
-    min-width: 316px;
+  box-sizing: border-box;
+  @media screen and (max-width: 416px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  color: white;
+
+  & a {
     color: white;
 
-    & a {
-        color: white;
-
-        &:hover {
-            color: gainsboro;
-        }
-
+    &:hover {
+      color: gainsboro;
     }
+  }
+
+  .searchContainer {
+    box-sizing: border-box;
+    display:inline-block;
+    width: 70%;
+    padding-right: 5px;
 
     .searchbar {
-        border-radius: 10px;
-        padding: 5px;
-        width: 60%;
-        margin: 20px;
-        box-shadow: 1px 1px 1px black;
+        width: 70%;
     }
 
-    .login {
-        padding: 10px;
-        border: 1px solid darkgreen;
-        background: darkgreen;
-        border-radius: 10px;
-        box-shadow: 1px 1px 1px black;
-
-        &:hover {
-            background-color: seagreen;
-            cursor: pointer;
-        }
+    button {
+        display: inline;
     }
+  }
+
+  .login {
+    box-sizing: border-box;
+    display: inline;
+    width: 20%;
+    padding: 10px;
+    border: 1px solid darkgreen;
+    background: darkgreen;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px black;
+
+    &:hover {
+      background-color: seagreen;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 416px) {
+      margin-top: 20px;
+      width: 50%;
+    }
+  }
 }

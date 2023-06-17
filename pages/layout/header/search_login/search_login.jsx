@@ -1,5 +1,7 @@
 import styles from "./search_login.module.scss";
+import SearchIcon from "@mui/icons-material/Search";
 import { useRef, useEffect } from "react";
+import { useMediaQuery } from "@mui/material";
 
 const navLinks = {
   home: "./",
@@ -39,7 +41,17 @@ export function SearchLogin(props) {
   return (
     <div className={styles.container} ref={containerRef}>
       {getWidth()}
-      <input type="text" placeholder="Search..." className={styles.searchbar} />
+      <span className={styles.searchContainer}>
+        <input
+          type="text"
+          placeholder="Search..."
+          className={styles.searchbar}
+        />
+        <button>
+          <SearchIcon fontSize="'small" />
+        </button>
+      </span>
+
       <span className={styles.login}>Login</span>
     </div>
   );

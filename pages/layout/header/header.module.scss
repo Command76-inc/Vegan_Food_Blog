@@ -1,10 +1,116 @@
 .desktop {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
 
-    .title {
-        color: silver;
+  .title {
+    color: silver;
+  }
+}
+
+.tablet {
+  .title {
+    text-align: center;
+  }
+
+  li {
+    padding: 0 1.5rem;
+  }
+
+  // FROM SEARCH LOGIN
+
+  div[class*="container"] {
+    padding: 10px 10px;
+    span[class*="searchContainer"] {
+      padding: 0 30px;
+      input[class*="searchbar"] {
+        width: 85%;
+      }
     }
+  }
+}
+
+.small-mobile {
+  .title {
+    margin: 0;
+  }
+  ul {
+    flex-direction: column;
+
+    li {
+      padding: 20px 0px 20px 20px;
+      border-bottom: 3px solid silver;
+      display: block;
+      font-size: 1.5rem;
+
+      &:hover {
+        background-color: darkgreen;
+      }
+    }
+  }
+
+  div[class*="container"] {
+    padding: 10px 10px;
+    input[class*="searchbar"] {
+      width: 80%;
+    }
+  }
+
+  .hamburger {
+    z-index: 4;
+    position: fixed;
+    height: 5px;
+    width: 50px;
+    right: 20px;
+    top: 33px;
+    background-color: silver;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before {
+      content: " ";
+      white-space: pre;
+      height: 5px;
+      width: 50px;
+      background-color: silver;
+      position: fixed;
+      top: 33px;
+      transition: top 500ms ease;
+    }
+    &::after {
+      content: " ";
+      white-space: pre;
+      height: 5px;
+      width: 50px;
+      background-color: silver;
+      position: fixed;
+      top: 33px;
+      transition: top 500ms ease;
+    }
+  }
+
+  .active::before {
+    top: 23px;
+  }
+
+  .active::after {
+    top: 43px;
+  }
+
+  .offset-menu {
+    box-sizing: border-box;
+    position: fixed;
+    padding-bottom: 10px;
+    background-color: #4f7942;
+    z-index: 3;
+    border-bottom: 3px solid silver;
+    width: 100%;
+    left: 0;
+  }
+}
+
+.very-small-phone {
 }

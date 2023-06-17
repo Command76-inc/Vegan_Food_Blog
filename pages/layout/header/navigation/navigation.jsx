@@ -6,22 +6,22 @@ export function NavLinks(props) {
         <nav className={styles.navigation} role="navigation">
           <ul>
             <li>        
-              <Link href="/">Home</Link>
+              <Link href="/"><div>Home</div></Link>
             </li>
             <li>        
-              <Link href="/posts/all_posts">Blog</Link>
+              <Link href="/posts/all_posts"><div>Blog</div></Link>
             </li>
             <li>
-              <Link href="/local_dining_areas">Local Dining</Link>
+              <Link href="/local_dining_areas"><div>Local Dining</div></Link>
             </li>
             <li>
-              <Link href="/recipes">Recipes</Link>
+              <Link href="/recipes"><div>Recipes</div></Link>
             </li>
             <li>
-              <Link href="/reviews">Reviews</Link>
+              <Link href="/reviews"><div>Reviews</div></Link>
             </li>
             <li>
-              <Link href="/about_us">About Us</Link>
+              <Link href="/about_us"><div>About Us</div></Link>
             </li>
           </ul>
         </nav>
