@@ -1,5 +1,5 @@
-import { ReplaceHead } from "../layout/head/head.js";
-import { Header } from "../layout/header/header.js";
+import { ReplaceHead } from "../layout/head/head";
+import { Header } from "../layout/header/header";
 import { Wrapper } from "../layout/wrapper";
 const title = "Local Dining | The Vegan Blog";
 const pageTitle = "Local Dining";

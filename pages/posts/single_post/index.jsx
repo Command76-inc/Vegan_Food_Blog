@@ -1,16 +1,16 @@
-import { ReplaceHead } from "../../layout/head/head.js";
-import { Header } from "../../layout/header/header.js";
-import { Wrapper } from "../../layout/wrapper";
+import { ReplaceHead } from "../../layout/head/head";
+import { Header } from "../../layout/header/header";
+import { Wrapper } from "../layout/wrapper";
 const title = "Blog | The Vegan Blog";
-const pageTitle = "Blog - All posts";
+const pageTitle = "Blog";
 const description = "The Vegan Blog is a one stop destination for all your vegan essentials";
 
-export default function AllPosts(props) {
+export default function SinglePost(props) {
     return (
     <Wrapper className={props.className}>
         <ReplaceHead canonical={true} description={description} title={title}></ReplaceHead>
         <Header showBanner={false}/>  
-        <h2>All Posts</h2>
+        <h2>Single Post</h2>
     </Wrapper>
     )
 }
