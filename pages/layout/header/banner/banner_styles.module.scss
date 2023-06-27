@@ -1,6 +1,26 @@
 .banner {
-    background: inherit;
-    height: 500px;
-    border-top: 3px darkgrey dashed;
-    border-bottom: 3px darkgrey dashed;
+  background-image: url("https://images.unsplash.com/photo-1493770348161-369560ae357d?ixid=M3w0NjI5OTh8MHwxfGFsbHx8fHx8fHx8fDE2ODcwMjAzMTZ8&ixlib=rb-4.0.3");
+  height: 500px;
+  border-top: 3px darkgrey dashed;
+  border-bottom: 3px darkgrey dashed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  h2 {
+    position: relative;
+    color: slategray;
+    left: 50px;
+        text-shadow: 2px 1px white;
+
+  }
+
+  p {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    color: white !important;
+    left: 50px;
+    text-shadow: 2px 1px black;
+  }
 }

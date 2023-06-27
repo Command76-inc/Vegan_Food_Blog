@@ -10,21 +10,11 @@
       list-style-type: none;
       display: inline-block;
 
-      & a {
-        color: white;
+      div {
         padding: 0 5px;
-        background: transparent;
-        border: 0;
-        font-size: inherit;
-        text-decoration: none;
-
         &:hover {
           color: gainsboro;
         }
-      }
-
-      div {
-        padding: 0 5px;
       }
 
       cursor: pointer;

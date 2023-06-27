@@ -13,7 +13,7 @@ export default function HomePage() {
         <Header pagetitle={pageTitle} showBanner={true}/>
         <main className={styles.main}>
           <section className={styles.section}>
-            <h2 className={styles.sectionHeading}>Latest Blog</h2>
+            <h3 className={styles.sectionHeading}>Latest Blog</h3>
             <div className="pure-g">
               <article className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                 <div className={styles.article}>
@@ -38,7 +38,7 @@ export default function HomePage() {
             </div>
           </section>
           <section className={styles.section}>
-            <h2 className={styles.sectionHeading}>Most Read Recipes</h2>
+            <h3 className={styles.sectionHeading}>Most Read Recipes</h3>
             <div className="pure-g">
               <article className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                 <div className={styles.article}>
