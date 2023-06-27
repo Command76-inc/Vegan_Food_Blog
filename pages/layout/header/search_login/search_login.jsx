@@ -3,6 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useRef, useEffect } from "react";
 import { useMediaQuery } from "@mui/material";
 
+
 const navLinks = {
   home: "./",
   blog: "./blog",
@@ -51,7 +52,7 @@ export function SearchLogin(props) {
           <SearchIcon fontSize="'small" />
         </button>
       </span>
-
+      <input type="text" placeholder="Search..." className={styles.searchbar} />
       <span className={styles.login}>Login</span>
     </div>
   );
