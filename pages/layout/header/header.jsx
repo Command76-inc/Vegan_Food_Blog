@@ -4,7 +4,6 @@ import styles from "./header.module.scss";
 import { Wrapper } from "../wrapper";
 import { Banner } from "./banner/banner";
 import { useMediaQuery } from "@mui/material";
-
 import { useEffect, useState } from "react";
 import Overlay from "../overlay";
 
@@ -136,7 +135,7 @@ export function Header(props) {
       }
     }
   };
-
+  
   const matches = useMediaQuery("(min-width: 1150px)");
 
   return (

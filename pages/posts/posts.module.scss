@@ -1,0 +1,31 @@
+@import "pages/styles/variables.scss";
+
+.post-container {
+  padding: $mainContainer;
+  h3 {
+    a {
+      color: white;
+
+      &:hover {
+        color: $linkColor;
+      }
+    }
+  }
+
+  .fetch-posts {
+    margin-bottom: 50px;
+    & p {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      font-size: 1.3rem;
+      margin: 0;
+    }
+
+    & hr {
+      border-style: dashed;
+    }
+  }
+}
