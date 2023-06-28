@@ -2,6 +2,7 @@ import { ReplaceHead } from "../layout/head/head";
 import { Header } from "../layout/header/header";
 import { Wrapper } from "../layout/wrapper";
 import { Footer } from "../layout/footer/footer";
+import styles from "./local_dining_areas.module.scss";
 
 const title = "Local Dining | The Vegan Blog";
 const pageTitle = "Local Dining";
@@ -17,7 +18,9 @@ export default function LocalDiningAreas(props) {
         title={title}
       ></ReplaceHead>
       <Header showBanner={false} />
-      <h2>Local Dining</h2>
+      <main class={styles["local-dining-areas-container"]}>
+        <h2>Local Dining</h2>
+      </main>
       <Footer />
     </Wrapper>
   );

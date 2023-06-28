@@ -33,7 +33,6 @@ export default function CreatePosts() {
       setFlash(true);
       setData(resBody.status);
       setStatus(200);
-      return router.push("/posts/all_posts");
     } else {
       setFlash(true);
       setData(resBody.status);
@@ -44,7 +43,12 @@ export default function CreatePosts() {
   useEffect(() => {
     if (flash) {
       setTimeout(() => {
-        setFlash(false);
+        if (status === 200) {
+          setFlash(false);
+          return router.push("/posts/all_posts");
+        } else {
+          setFlash(false);
+        }
       }, 5000);
     }
   });

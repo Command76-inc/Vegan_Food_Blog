@@ -1,8 +1,6 @@
 import styles from "./search_login.module.scss";
 import SearchIcon from "@mui/icons-material/Search";
-import SearchIcon from "@mui/icons-material/Search";
 import { useRef, useEffect } from "react";
-import { useMediaQuery } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
 
 const navLinks = {
