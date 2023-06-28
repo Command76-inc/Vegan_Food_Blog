@@ -51,7 +51,6 @@ export function SearchLogin(props) {
           <SearchIcon fontSize="'small" />
         </button>
       </span>
-
       <span className={styles.login}>Login</span>
     </div>
   );

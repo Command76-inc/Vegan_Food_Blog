@@ -3,6 +3,7 @@ import { Header } from "../layout/header/header";
 import { Wrapper } from "../layout/wrapper";
 import { Footer } from "../layout/footer/footer";
 import styles from "./about_us.module.scss";
+
 const title = "About Us | The Vegan Blog";
 const pageTitle = "About Us";
 const description =

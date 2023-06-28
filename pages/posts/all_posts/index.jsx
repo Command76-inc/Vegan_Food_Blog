@@ -3,12 +3,13 @@ import styles from "../posts.module.scss";
 import { ReplaceHead } from "../../layout/head/head";
 import { Header } from "../../layout/header/header";
 import { Wrapper } from "../../layout/wrapper";
-import { Footer } from "../../layout/footer/footer";
+import { Footer } from "../../layout/footer/footer;
+import FetchPosts from "./fetchPosts";
+
 const title = "Blog | The Vegan Blog";
 const pageTitle = "Blog - All posts";
 const description =
   "The Vegan Blog is a one stop destination for all your vegan essentials";
-import FetchPosts from "./fetchPosts";
 
 export default function AllPosts(props) {
   const admin = true;

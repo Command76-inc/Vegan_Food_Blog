@@ -6,17 +6,26 @@
     flex-direction: row;
     justify-content: center;
 
-    li {
-      list-style-type: none;
-      display: inline-block;
+        li {
+            list-style-type: none;
+            display: inline-block;
 
-      div {
+      & a {
+        color: white;
         padding: 0 5px;
+        background: transparent;
+        border: 0;
+        font-size: inherit;
+        text-decoration: none;
+
         &:hover {
           color: gainsboro;
         }
       }
 
+      div {
+        padding: 0 5px;
+      }
       cursor: pointer;
     }
   }
