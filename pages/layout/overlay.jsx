@@ -4,7 +4,7 @@ export default function Overlay() {
       style={{
         position: "absolute",
         top: 0,
-        bottom: "-25px",
+        bottom: "-35px",
         left: 0,
         right: 0,
         backgroundRepeat: "repeat",

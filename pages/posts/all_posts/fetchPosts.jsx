@@ -1,6 +1,7 @@
 import { Pagination } from "@mui/material";
 import { useState, useEffect } from "react";
 import React from "react";
+import Link from "next/link";
 
 export default function FetchPosts(props) {
   const [data, setData] = useState(null);
@@ -34,12 +35,18 @@ export default function FetchPosts(props) {
   return (
     <>
       {data.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE).map((el) => (
-        <div className={props.className} key={el.id + "-div"}>
-          <h2 key={el.id + "-h2"}>{el.title}</h2>
-          <p key={el.id + "-p"}>{el.content}</p>
-          <small key={el.id + "-small"}>{el.tags}</small>
-          <hr key={el.id + "-hr"} />
-        </div>
+        <Link
+          href={`/posts/single_post?id=${el.id}`}
+          key={el.id + "-link"}
+          passHref
+          legacyBehavior
+        >
+          <div className={props.className} key={el.id + "-div"}>
+            <h2 key={el.id + "-h2"}>{el.title}</h2>
+            <p key={el.id + "-p"}>{el.content}</p>
+            <small key={el.id + "-small"}>{el.tags}</small>
+          </div>
+        </Link>
       ))}
       <Pagination
         count={Math.ceil(data.length / PER_PAGE)}
