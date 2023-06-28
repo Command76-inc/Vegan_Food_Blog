@@ -6,7 +6,16 @@
     justify-content: center;
   }
   color: white;
+  box-sizing: border-box;
+  @media screen and (max-width: 416px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  color: white;
 
+  & a {
+    color: white;
   & a {
     color: white;
 
@@ -14,6 +23,16 @@
       color: gainsboro;
     }
   }
+    &:hover {
+      color: gainsboro;
+    }
+  }
+
+  .searchContainer {
+    box-sizing: border-box;
+    display:inline-block;
+    width: 70%;
+    padding-right: 5px;
 
   .searchContainer {
     box-sizing: border-box;
@@ -27,7 +46,6 @@
 
     button {
         display: inline;
-        height: 30px;
     }
   }
 
@@ -40,6 +58,27 @@
     background: darkgreen;
     border-radius: 10px;
     box-shadow: 1px 1px 1px black;
+  .login {
+    box-sizing: border-box;
+    display: inline;
+    width: 20%;
+    padding: 10px;
+    border: 1px solid darkgreen;
+    background: darkgreen;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px black;
+
+    &:hover {
+      background-color: seagreen;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 416px) {
+      margin-top: 20px;
+      width: 50%;
+    }
+  }
+}
 
     &:hover {
       background-color: seagreen;

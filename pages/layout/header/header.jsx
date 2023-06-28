@@ -81,12 +81,6 @@ function SmallMobile(props) {
   );
 }
 
-function PageTitle({ pagetitle }) {
-  return (
-    <h1 className={styles.title}>{pagetitle ? pagetitle : "The Vegan Blog"}</h1>
-  );
-}
-
 export function Header(props) {
   const [top, setTop] = useState({ top: "-1000px" });
   const desktop = useMediaQuery("(min-width: 1150px)");
@@ -135,8 +129,6 @@ export function Header(props) {
       }
     }
   };
-  
-  const matches = useMediaQuery("(min-width: 1150px)");
 
   return (
     <header>
