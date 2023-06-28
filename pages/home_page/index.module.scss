@@ -1,0 +1,18 @@
+.section {
+  .sectionHeading {
+    text-align: center;
+  }
+  div {
+    article {
+      .article {
+        padding: 20px;
+
+        & div {
+          border: 3px solid darkgrey;
+        }
+      }
+    }
+  }
+}
+
+

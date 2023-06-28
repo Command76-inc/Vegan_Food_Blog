@@ -9,7 +9,6 @@ let formSchema = yup.object().shape({
 });
 
 async function saveFormData(fields, files) {
-  console.log(fields);
   // save to persistent data store
   const post = await db.Post;
 
@@ -82,21 +81,3 @@ export const config = {
     bodyParser: false,
   },
 };
-
-// export const config = {
-//   api: {
-//     bodyParser: false,
-//   },
-// };
-
-// export default async function createPost(req, res) {
-//   const post = await db.Post;
-
-//   post.create({
-//     title: req.body.title,
-//     content: req.body.content,
-//     tags: req.body.tags,
-//   });
-
-//   res.json({ success: "Posted created successfully." });
-// }

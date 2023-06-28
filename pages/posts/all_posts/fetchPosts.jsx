@@ -8,10 +8,6 @@ export default function FetchPosts(props) {
   let [page, setPage] = useState(0);
   const PER_PAGE = 10;
 
-  // const handleChange = (e) => {
-  //   setPage(parseInt(e.target.textContent))
-  // }
-
   useEffect(() => {
     setLoading(true);
     fetch("/api/post/get_posts?page=" + page, {
@@ -26,7 +22,6 @@ export default function FetchPosts(props) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setData(data);
         setLoading(false);
       })
