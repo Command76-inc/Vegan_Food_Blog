@@ -3,23 +3,32 @@ import { Header } from "../layout/header/header";
 import { Wrapper } from "../layout/wrapper";
 import { Footer } from "../layout/footer/footer";
 import styles from "./local_dining_areas.module.scss";
-import { useEffect } from "react";
-require("dotenv").config();
-
+import { useEffect, useState } from "react";
 
 const title = "Local Dining | The Vegan Blog";
 const pageTitle = "Local Dining";
 const description =
   "The Vegan Blog is a one stop destination for all your vegan essentials";
 
-
-  // create a list of local vegan restaurants in orlando or look for an api that provides a list of restaurants around the country to use.
-  // when user clicks one of the restaurant titles google maps will place a pin on the location of that restaurant.
-  // When the user clicks the pin they will learn more about the restaurant and things of that nature.
+// create a list of local vegan restaurants in orlando or look for an api that provides a list of restaurants around the country to use.
+// when user clicks one of the restaurant titles google maps will place a pin on the location of that restaurant.
+// When the user clicks the pin they will learn more about the restaurant and things of that nature.
 
 export default function LocalDiningAreas(props) {
   useEffect(() => {
-    if (typeof document !== undefined && typeof window !== undefined) {
+    fetch("/api/maps/get_api_key", {
+      method: "GET", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
+      },
+      referrerPolicy: "no-referrer", //
+    })
+      .then((res) => res.json())
+      .then((key) => {
+        if (typeof document !== undefined && typeof window !== undefined) {
       ((g) => {
         var h,
           a,
@@ -55,7 +64,7 @@ export default function LocalDiningAreas(props) {
           ? console.warn(p + " only loads once. Ignoring:", g)
           : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
       })({
-        key: process.env.GOOGLE_MAPS_API_KEY,
+        key: Object.values(key)[0],
         v: "weekly",
         // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
         // Add other bootstrap parameters as needed, using camel case.
@@ -69,11 +78,13 @@ export default function LocalDiningAreas(props) {
 
         const geocoder = new google.maps.Geocoder();
         const getLatLong = await geocoder.geocode(
-          { address: "3201 Corrine Dr. ORlando, fl 32803" },
+          { address: "3201 Corrine Dr. Orlando, fl 32803" },
           (results, status) => {
             return results[0].geometry.location;
           }
         );
+
+        console.log(getLatLong);
 
         const map = new Map(document.getElementById("map"), {
           center: {
@@ -81,7 +92,7 @@ export default function LocalDiningAreas(props) {
             lng: getLatLong.results[0].geometry.location.lng(),
           },
           zoom: 19,
-          mapId: "VeganRestaurantMap"
+          mapId: "VeganRestaurantMap",
         });
 
         const marker = new AdvancedMarkerElement({
@@ -90,13 +101,14 @@ export default function LocalDiningAreas(props) {
             lat: getLatLong.results[0].geometry.location.lat(),
             lng: getLatLong.results[0].geometry.location.lng(),
           },
-          title: "Winter Park Biscuit Company"
+          title: "Winter Park Biscuit Company",
         });
         return marker;
       }
 
       initMap();
     }
+      })
   }, []);
 
   return (
