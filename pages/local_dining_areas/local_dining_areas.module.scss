@@ -3,7 +3,29 @@
 .local-dining-areas-container {
   padding: $mainContainer;
   & .map {
-    height: 100%;
+    height: 50%;
   }
   height: 100vh;
+
+  & .place {
+    & .from-us {
+      font-size: 1rem;
+
+      & .left-quote,
+      .right-quote {
+        font-size: 3.5rem;
+        vertical-align: middle;
+        padding: 0 5px 0 5px;
+      }
+    }
+  }
+
+  .restaurant-list {
+    & span {
+      &:hover {
+        color: gainsboro;
+        cursor: pointer;
+      }
+    }
+  }
 }
