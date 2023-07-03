@@ -13,7 +13,6 @@ export default function CreatePosts() {
   const router = useRouter();
 
   const publish = async (event, data) => {
-    console.log(data);
     event.preventDefault();
 
     const f = new FormData();

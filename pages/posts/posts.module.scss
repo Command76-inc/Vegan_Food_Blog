@@ -13,6 +13,15 @@
   }
 
   .fetch-posts {
+    border-bottom-style: dashed;
+
+    &:hover {
+      background-color: floralwhite;
+      color: darkgreen;
+      border-style: dashed;
+    }
+    cursor: pointer;
+
     margin-bottom: 50px;
     & p {
       width: 100%;
@@ -22,10 +31,6 @@
 
       font-size: 1.3rem;
       margin: 0;
-    }
-
-    & hr {
-      border-style: dashed;
     }
   }
 }

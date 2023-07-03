@@ -1,5 +1,4 @@
 .navigation {
-  color: white;
   ul {
     padding-left: 0;
     display: flex;
@@ -7,8 +6,8 @@
     justify-content: center;
 
     li {
-        list-style-type: none;
-        display: inline;
+      list-style-type: none;
+      display: inline;
 
       & a {
         color: white;
@@ -17,14 +16,13 @@
         border: 0;
         font-size: inherit;
         text-decoration: none;
-
-        &:hover {
-          color: gainsboro;
-        }
       }
 
       div {
         padding: 0 5px;
+        &:hover {
+          color: gainsboro;
+        }
       }
       cursor: pointer;
     }

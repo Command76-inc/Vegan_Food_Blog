@@ -2,7 +2,7 @@ import { db } from "../../../lib/db";
 
 export default async function getPosts(req, res) {
   const post = await db.Post;
-  const getPosts = await post.find();
+  const getSinglePost = await post.findById({_id: req.query.id});
 
-  res.json(getPosts);
+  res.json(getSinglePost);
 }

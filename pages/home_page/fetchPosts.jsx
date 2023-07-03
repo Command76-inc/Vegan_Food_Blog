@@ -1,17 +1,14 @@
-import { Pagination } from "@mui/material";
+import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
-import React from "react";
 import Link from "next/link";
 
-export default function FetchPosts(props) {
+export default function HomePagePosts() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
-  let [page, setPage] = useState(0);
-  const PER_PAGE = 10;
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/post/get_posts?page=" + page, {
+    fetch("/api/post/get_home_page_posts", {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -27,35 +24,32 @@ export default function FetchPosts(props) {
         setLoading(false);
       })
       .catch((error) => console.error("Error: ", error));
-  }, [page]);
+  }, []);
 
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No Post Data</p>;
 
   return (
-    <>
-      {data.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE).map((el) => (
-        <Link
-          href={`/posts/single_post?id=${el.id}`}
-          key={el.id + "-link"}
-          passHref
-          legacyBehavior
-        >
-          <div className={props.className} key={el.id + "-div"}>
-            <h2 key={el.id + "-h2"}>{el.title}</h2>
-            <p key={el.id + "-p"}>{el.content}</p>
-            <small key={el.id + "-small"}>{el.tags}</small>
-          </div>
-        </Link>
-      ))}
-      <Pagination
-        count={Math.ceil(data.length / PER_PAGE)}
-        size="large"
-        page={page + 1}
-        variant="outlined"
-        shape="rounded"
-        onChange={(e, value) => setPage(value - 1)}
-      />
-    </>
+    <section className={styles.section}>
+      <h3 className={styles.sectionHeading}>Latest Blog</h3>
+      <div className="pure-g">
+        {data.map((post) => (
+          <Link
+            href={`/posts/single_post?id=${post.id}`}
+            passHref
+            legacyBehavior
+          >
+            <article
+              className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4"
+              key={post.id + "-article"}
+            >
+              <div className={styles.article} key={post.id + "-div1"}>
+                <div key={post.id + "div2"}>{post.title}</div>
+              </div>
+            </article>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }

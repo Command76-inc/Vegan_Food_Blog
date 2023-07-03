@@ -1,5 +1,38 @@
 @import "pages/styles/variables.scss";
 
 .local-dining-areas-container {
-    padding: $mainContainer;
+  padding: $mainContainer;
+  & .map {
+    height: 350px;
+  }
+  height: 100%;
+
+  & .place {
+    & .from-maps {
+      & img {
+        padding: 20px;
+      }
+    }
+    & .from-us {
+      font-size: 1rem;
+
+      & .left-quote,
+      .right-quote {
+        font-size: 3.5rem;
+        vertical-align: middle;
+        padding: 0 5px 0 5px;
+      }
+    }
+  }
+
+  .restaurant-list {
+    & span {
+      box-sizing: border-box;
+      padding: 5px;
+      &:hover {
+        color: gainsboro;
+        cursor: pointer;
+      }
+    }
+  }
 }

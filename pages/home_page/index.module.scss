@@ -1,0 +1,25 @@
+.section {
+  .sectionHeading {
+    text-align: center;
+  }
+  div {
+    article {
+      .article {
+        padding: 20px;
+
+        & div {
+          padding: 5px;
+          border: 3px dashed darkgrey;
+          &:hover {
+            color: darkgreen;
+            background-color: darkgrey;
+            border-color: darkgreen;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+
