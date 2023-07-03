@@ -149,7 +149,7 @@ export default function LocalDiningAreas(props) {
         <h4>Restaurants</h4>
         <div className={styles["restaurant-list"]}>
           <span
-            className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4"
+            className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4"
             onClick={() => {
               setAddress(
                 "Winter Park Biscuit Company, 3201 Corrine Dr. Orlando, fl 32803"
@@ -160,7 +160,7 @@ export default function LocalDiningAreas(props) {
             Winter Park Biscuit Company
           </span>
           <span
-            className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4"
+            className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4"
             onClick={() => {
               setAddress(
                 "Valkryie Doughnuts, 12226 Corporate Blvd, Orlando, FL 32817"

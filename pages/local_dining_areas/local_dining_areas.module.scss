@@ -3,9 +3,9 @@
 .local-dining-areas-container {
   padding: $mainContainer;
   & .map {
-    height: 50%;
+    height: 350px;
   }
-  height: 100vh;
+  height: 100%;
 
   & .place {
     & .from-us {
@@ -22,6 +22,8 @@
 
   .restaurant-list {
     & span {
+      box-sizing: border-box;
+      padding: 5px;
       &:hover {
         color: gainsboro;
         cursor: pointer;
