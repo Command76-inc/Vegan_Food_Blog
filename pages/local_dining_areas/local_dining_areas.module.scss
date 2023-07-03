@@ -8,6 +8,11 @@
   height: 100%;
 
   & .place {
+    & .from-maps {
+      & img {
+        padding: 20px;
+      }
+    }
     & .from-us {
       font-size: 1rem;
 
