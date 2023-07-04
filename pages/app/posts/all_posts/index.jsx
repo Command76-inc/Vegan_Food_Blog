@@ -15,12 +15,6 @@ export default function AllPosts(props) {
   const admin = true;
   return (
     <Wrapper className={props.className}>
-      {/* <ReplaceHead
-        canonical={true}
-        description={description}
-        title={title}
-      ></ReplaceHead>
-      <Header showBanner={false} /> */}
       <main className={styles["post-container"]}>
         <h2>{pageTitle}</h2>
         {admin ? (
@@ -30,7 +24,6 @@ export default function AllPosts(props) {
         ) : null}
         <FetchPosts className={styles["fetch-posts"]} />
       </main>
-      {/* <Footer /> */}
     </Wrapper>
   );
 }

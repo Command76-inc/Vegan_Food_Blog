@@ -14,17 +14,10 @@ const description =
 export default function HomePage() {
   return (
     <div>
-      {/* <ReplaceHead
-        canonical={true}
-        description={description}
-        title={title}
-      ></ReplaceHead> */}
-      {/* <Header pagetitle={pageTitle} showBanner={true} /> */}
       <main className={styles.main}>
         <HomePagePosts />
         <HomePageRecipes />
       </main>
-      {/* <Footer></Footer> */}
     </div>
   );
 }

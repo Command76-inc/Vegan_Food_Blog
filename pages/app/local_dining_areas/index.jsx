@@ -145,12 +145,6 @@ export default function LocalDiningAreas(props) {
 
   return (
     <Wrapper className={props.className}>
-      {/* <ReplaceHead
-        canonical={true}
-        description={description}
-        title={title}
-      ></ReplaceHead>
-      <Header showBanner={false} /> */}
       <main className={styles["local-dining-areas-container"]}>
         <h2>Local Dining</h2>
         <h4>Restaurants</h4>
@@ -194,7 +188,6 @@ export default function LocalDiningAreas(props) {
           </blockquote>
         </div>
       </main>
-      {/* <Footer /> */}
     </Wrapper>
   );
 }
