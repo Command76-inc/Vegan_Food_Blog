@@ -15,22 +15,22 @@ export default function AllPosts(props) {
   const admin = true;
   return (
     <Wrapper className={props.className}>
-      <ReplaceHead
+      {/* <ReplaceHead
         canonical={true}
         description={description}
         title={title}
       ></ReplaceHead>
-      <Header showBanner={false} />
+      <Header showBanner={false} /> */}
       <main className={styles["post-container"]}>
         <h2>{pageTitle}</h2>
         {admin ? (
           <h3 className={styles.h3}>
-            <Link href="/posts/create_post">Create new post</Link>
+            <Link href="/app/posts/create_post">Create new post</Link>
           </h3>
         ) : null}
         <FetchPosts className={styles["fetch-posts"]} />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </Wrapper>
   );
 }

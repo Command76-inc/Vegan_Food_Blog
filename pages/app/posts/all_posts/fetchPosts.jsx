@@ -2,6 +2,7 @@ import { Pagination } from "@mui/material";
 import { useState, useEffect } from "react";
 import React from "react";
 import Link from "next/link";
+import styles from "../posts.module.scss";
 
 export default function FetchPosts(props) {
   const [data, setData] = useState(null);
@@ -36,7 +37,7 @@ export default function FetchPosts(props) {
     <>
       {data.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE).map((el) => (
         <Link
-          href={`/posts/single_post?id=${el.id}`}
+          href={`/app/posts/single_post?id=${el.id}`}
           key={el.id + "-link"}
           passHref
           legacyBehavior
@@ -54,6 +55,7 @@ export default function FetchPosts(props) {
         page={page + 1}
         variant="outlined"
         shape="rounded"
+        className={styles.pagination}
         onChange={(e, value) => setPage(value - 1)}
       />
     </>

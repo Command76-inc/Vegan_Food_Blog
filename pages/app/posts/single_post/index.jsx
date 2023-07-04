@@ -48,16 +48,16 @@ export default function SinglePost(props) {
 
   return (
     <Wrapper className={props.className}>
-      <ReplaceHead
+      {/* <ReplaceHead
         canonical={true}
         description={description}
         title={title}
-      ></ReplaceHead>
-      <Header showBanner={false} />
+      ></ReplaceHead> */}
+      {/* <Header showBanner={false} /> */}
       <main className={styles["post-container"]}>
         <h2>{data.title}</h2>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </Wrapper>
   );
 }

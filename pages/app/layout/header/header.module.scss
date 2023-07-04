@@ -77,7 +77,7 @@
       width: 50px;
       background-color: silver;
       position: fixed;
-      top: 33px;
+      top: 23px;
       transition: top 500ms ease;
     }
     &::after {
@@ -87,17 +87,17 @@
       width: 50px;
       background-color: silver;
       position: fixed;
-      top: 33px;
+      top: 43px;
       transition: top 500ms ease;
     }
   }
 
   .active::before {
-    top: 23px;
+    top: 33px;
   }
 
   .active::after {
-    top: 43px;
+    top: 33px;
   }
 
   .offset-menu {

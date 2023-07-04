@@ -12,16 +12,16 @@ const description =
 export default function Reviews(props) {
   return (
     <Wrapper className={props.className}>
-      <ReplaceHead
+      {/* <ReplaceHead
         canonical={true}
         description={description}
         title={title}
       ></ReplaceHead>
-      <Header showBanner={false} />
+      <Header showBanner={false} /> */}
       <main className={styles["reviews-container"]}>
         <h2>Reviews</h2>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </Wrapper>
   );
 }

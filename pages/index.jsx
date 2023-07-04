@@ -1,10 +1,10 @@
 // index.html
-import { ReplaceHead } from "./layout/head/head";
-import { Header } from "./layout/header/header";
-import { Footer } from "./layout/footer/footer";
+import { ReplaceHead } from "./app/layout/head/head";
+import { Header } from "./app/layout/header/header";
+import { Footer } from "./app/layout/footer/footer";
 import styles from "./index.module.scss";
-import HomePagePosts from "./home_page/fetchPosts";
-import HomePageRecipes from "./home_page/fetchRecipes";
+import HomePagePosts from "./app/home_page/fetchPosts";
+import HomePageRecipes from "./app/home_page/fetchRecipes";
 
 const title = "Home | The Vegan Blog";
 const pageTitle = "The Vegan Blog";
@@ -14,17 +14,17 @@ const description =
 export default function HomePage() {
   return (
     <div>
-      <ReplaceHead
+      {/* <ReplaceHead
         canonical={true}
         description={description}
         title={title}
-      ></ReplaceHead>
-      <Header pagetitle={pageTitle} showBanner={true} />
+      ></ReplaceHead> */}
+      {/* <Header pagetitle={pageTitle} showBanner={true} /> */}
       <main className={styles.main}>
         <HomePagePosts />
         <HomePageRecipes />
       </main>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 }
