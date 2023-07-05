@@ -1,9 +1,7 @@
-import { ReplaceHead } from "../../layout/head/head";
-import { Header } from "../../layout/header/header";
 import { Wrapper } from "../../layout/wrapper";
-import { Footer } from "../../layout/footer/footer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./single_post.module.scss";
+import Link from "next/link";
 
 const title = "Blog | The Vegan Blog";
 const pageTitle = "Blog";
@@ -11,6 +9,7 @@ const description =
   "The Vegan Blog is a one stop destination for all your vegan essentials";
 
 export default function SinglePost(props) {
+  const bodyContent = useRef(null);
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const getIdFromUrl = () => {
@@ -23,7 +22,7 @@ export default function SinglePost(props) {
   };
 
   useEffect(() => {
-    getIdFromUrl()
+    getIdFromUrl();
     setLoading(true);
     fetch(`/api/post/get_single_post?id=${getIdFromUrl()}`, {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
@@ -43,6 +42,12 @@ export default function SinglePost(props) {
       .catch((error) => console.error("Error: ", error));
   }, []);
 
+  useEffect(() => {
+    if (bodyContent.current !== null) {
+      bodyContent.current.innerHTML = data.content;
+    }
+  }, [isLoading]);
+
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No Post Data</p>;
 
@@ -50,6 +55,14 @@ export default function SinglePost(props) {
     <Wrapper className={props.className}>
       <main className={styles["post-container"]}>
         <h2>{data.title}</h2>
+        <div className={styles["content-body"]} ref={bodyContent}></div>
+        <h4>Tags</h4>
+        <ul>
+          {data.tags.map((tag) => {
+            return <li key={tag}>{tag}</li>;
+          })}
+        </ul>
+        <Link href="/app/posts/all_posts">Go back to see all posts</Link>
       </main>
     </Wrapper>
   );

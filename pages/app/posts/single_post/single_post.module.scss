@@ -2,4 +2,14 @@
 
 .post-container {
     padding: $mainContainer;
+    & > * {
+        margin: 20px 0;
+    }
+
+    & a {
+        color: white;
+        &:hover {
+            color: gainsboro
+        }
+    }
 }
