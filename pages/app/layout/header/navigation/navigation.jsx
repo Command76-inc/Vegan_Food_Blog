@@ -46,7 +46,7 @@ export function NavLinks(props) {
           </Link>
         </li>
         <li style={router.route.includes("recipes") ? activeLinkStyle : null}>
-          <Link href="/app/recipes">
+          <Link href="/app/recipes/all_recipes">
             <div
               onClick={router.route.includes("recipes") ? null : props.reveal}
             >

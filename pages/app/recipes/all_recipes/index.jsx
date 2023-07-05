@@ -1,8 +1,5 @@
-import { ReplaceHead } from "../layout/head/head";
-import { Header } from "../layout/header/header";
-import { Wrapper } from "../layout/wrapper";
-import { Footer } from "../layout/footer/footer";
-import styles from "./recipes.module.scss";
+import { Wrapper } from "../../layout/wrapper";
+import styles from "../recipes.module.scss";
 
 const title = "Recipes | The Vegan Blog";
 const pageTitle = "Recipes";
