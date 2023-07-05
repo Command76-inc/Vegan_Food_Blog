@@ -42,7 +42,7 @@ function TinyMobile(props) {
           />
         ) : null}
 
-        <NavLinks />
+        <NavLinks reveal={props.reveal} />
         <SearchLogin />
       </div>
       {parseInt(props.top.top) >= 0 ? <Overlay /> : null}
@@ -73,7 +73,7 @@ function SmallMobile(props) {
             isSmall={props.isSmallMobile}
           />
         ) : null}
-        <NavLinks />
+        <NavLinks reveal={props.reveal} />
         <SearchLogin />
       </div>
       {parseInt(props.top.top) >= 0 ? <Overlay /> : null}
@@ -136,13 +136,13 @@ export function Header(props) {
         {desktop ? (
           <div className={styles.desktop}>
             <PageTitle pagetitle={props.pagetitle} />
-            <NavLinks />
+            <NavLinks reveal={null} />
             <SearchLogin />
           </div>
         ) : tablet ? (
           <div className={styles.tablet}>
             <PageTitle pagetitle={props.pagetitle} isSmallMobile={false} />
-            <NavLinks />
+            <NavLinks reveal={null} />
             <SearchLogin />
           </div>
         ) : smallMobile ? (

@@ -12,16 +12,9 @@ const description =
 export default function Recipes(props) {
   return (
     <Wrapper className={props.className}>
-      <ReplaceHead
-        canonical={true}
-        description={description}
-        title={title}
-      ></ReplaceHead>
-      <Header showBanner={false} />
       <main className={styles["recipes-container"]}>
         <h2>Recipes</h2>
       </main>
-      <Footer />
     </Wrapper>
   );
 }

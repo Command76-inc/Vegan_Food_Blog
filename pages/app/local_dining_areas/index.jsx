@@ -1,4 +1,4 @@
-  // console.log = console.warn = console.error = () => {};
+// console.log = console.warn = console.error = () => {};
 import { ReplaceHead } from "../layout/head/head";
 import { Header } from "../layout/header/header";
 import { Wrapper } from "../layout/wrapper";
@@ -126,7 +126,14 @@ export default function LocalDiningAreas(props) {
 
             const placeContainer = window["from-maps"];
             placeContainer.innerHTML =
-              place.displayName + "<br />" + place.formattedAddress + "<br />" + `<img src=${place.photos[0].getURI({maxWidth: 300, maxHeight: 300})} \>`;
+              place.displayName +
+              "<br />" +
+              place.formattedAddress +
+              "<br />" +
+              `<img src=${place.photos[0].getURI({
+                maxWidth: 300,
+                maxHeight: 300,
+              })} \>`;
 
             return marker;
           }
@@ -138,12 +145,6 @@ export default function LocalDiningAreas(props) {
 
   return (
     <Wrapper className={props.className}>
-      <ReplaceHead
-        canonical={true}
-        description={description}
-        title={title}
-      ></ReplaceHead>
-      <Header showBanner={false} />
       <main className={styles["local-dining-areas-container"]}>
         <h2>Local Dining</h2>
         <h4>Restaurants</h4>
@@ -187,7 +188,6 @@ export default function LocalDiningAreas(props) {
           </blockquote>
         </div>
       </main>
-      <Footer />
     </Wrapper>
   );
 }

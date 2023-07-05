@@ -35,16 +35,17 @@ export default function HomePagePosts() {
       <div className="pure-g">
         {data.map((post) => (
           <Link
-            href={`/posts/single_post?id=${post.id}`}
+            href={`/app/posts/single_post?id=${post.id}`}
             passHref
             legacyBehavior
+            key={post.id + "-link"}
           >
             <article
               className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4"
               key={post.id + "-article"}
             >
               <div className={styles.article} key={post.id + "-div1"}>
-                <div key={post.id + "div2"}>{post.title}</div>
+                <div key={post.id + "-div2"}>{post.title}</div>
               </div>
             </article>
           </Link>

@@ -1,4 +1,7 @@
+@import "pages/styles/variables.scss";
+
 .container {
+  padding: $mainContainer;
   .form-container {
     input {
       width: 50%;

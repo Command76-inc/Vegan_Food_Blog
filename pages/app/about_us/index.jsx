@@ -12,12 +12,6 @@ const description =
 export default function AboutUs(props) {
   return (
     <Wrapper className={props.className}>
-      <ReplaceHead
-        canonical={true}
-        description={description}
-        title={title}
-      ></ReplaceHead>
-      <Header showBanner={false} />
       <main className={styles["about-us-section"]}>
         <h2>About Us</h2>
         <h3>Welcome to our vegan blog site!</h3>{" "}
@@ -92,7 +86,6 @@ export default function AboutUs(props) {
           </strong>
         </p>
       </main>
-      <Footer />
     </Wrapper>
   );
 }
