@@ -1,17 +1,24 @@
-.desktop {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
+.header {
+  background: green;
+}
 
+.title {
+  font-family: thirsty-rough-two, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.desktop {
   .title {
-    color: silver;
+    
   }
 }
 
 .tablet {
   .title {
     text-align: center;
+    margin: 0;
+    padding: 20px 0;
   }
 
   li {

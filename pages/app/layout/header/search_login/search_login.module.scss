@@ -1,5 +1,4 @@
 .container {
-  margin-bottom: 10px;
   box-sizing: border-box;
   @media screen and (max-width: 416px) {
     display: flex;
@@ -17,16 +16,11 @@
 
   .searchContainer {
     box-sizing: border-box;
-    display: inline-block;
-    width: 70%;
-    padding-right: 5px;
 
-    .searchbar {
-      width: 70%;
-    }
-
-    button {
-      display: inline;
+    .searchBtn {
+      background: #2044E0;
+      color: white;
+      height: 100%;
     }
   }
 

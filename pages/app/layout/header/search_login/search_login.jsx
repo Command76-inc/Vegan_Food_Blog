@@ -1,5 +1,10 @@
 import styles from "./search_login.module.scss";
 import SearchIcon from "@mui/icons-material/Search";
+import { 
+  TextField, 
+  Button, 
+  Grid
+} from "@mui/material";
 import { useRef, useEffect } from "react";
 import { useMediaQuery } from "@mui/material";
 
@@ -39,20 +44,36 @@ export function SearchLogin(props) {
   });
 
   return (
-    <div className={styles.container} ref={containerRef}>
+    <Grid container className={styles.container} ref={containerRef}>
       {getWidth()}
-      <span className={styles.searchContainer}>
-        <input
-          type="text"
+      <Grid container item xs={10} direction="row" className={styles.searchContainer}>
+        <Grid item xs={9}>
+        <TextField
+          sx={{ 
+            '& .MuiInputBase-root': {
+              background: 'white', 
+            }, 
+            '& .MuiInputBase-input': {
+              padding: '10px 10px'
+            }
+          }}
+          fullWidth 
           placeholder="Search..."
           className={styles.searchbar}
         />
-        <button>
-          <SearchIcon fontSize="'small" />
-        </button>
-      </span>
-
-      <span className={styles.login}>Login</span>
-    </div>
+        </Grid>
+        <Grid item>
+        <Button
+          variant="outlined"
+          className={styles.searchBtn}
+        >
+          <SearchIcon fontSize="medium" />
+        </Button>
+        </Grid>
+      </Grid>
+      <Grid item xs={2}>
+        <Button className={styles.login}>Login</Button>
+      </Grid>
+    </Grid>
   );
 }

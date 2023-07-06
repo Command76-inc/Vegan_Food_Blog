@@ -1,5 +1,4 @@
-html {
-  background: darkolivegreen;
+* {
   padding: 0;
   margin: 0;
 
@@ -7,6 +6,9 @@ html {
     color: white;
     position: relative;
     font-family: Arial, Helvetica, sans-serif;
+    font-family: harman-sans, sans-serif;
+    font-style: normal;
+    font-weight: 400;
     font-size: 1.2rem;
   }
 }
