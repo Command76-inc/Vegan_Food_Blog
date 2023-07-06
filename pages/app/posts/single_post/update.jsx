@@ -85,7 +85,7 @@ export default function UpdatePost() {
         }
       }, 5000);
     }
-  });
+  }, [status]);
 
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No Post Data</p>;
