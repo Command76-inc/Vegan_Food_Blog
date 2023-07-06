@@ -3,7 +3,10 @@ import { SearchLogin } from "./search_login/search_login";
 import styles from "./header.module.scss";
 import { Wrapper } from "../wrapper";
 import { Banner } from "./banner/banner";
-import { useMediaQuery } from "@mui/material";
+import { 
+  useMediaQuery, 
+  Grid, 
+} from "@mui/material";
 import { useEffect, useState } from "react";
 import Overlay from "../overlay";
 
@@ -11,7 +14,7 @@ function PageTitle(props) {
   return (
     <h1
       className={styles.title}
-      style={!props.isSmall ? { paddingLeft: "20px", padding: "20px" } : null}
+      style={!props.isSmall ? { paddingLeft: "20px" } : null}
     >
       {props.pagetitle ? props.pagetitle : "The Vegan Blog"}
     </h1>
@@ -132,12 +135,21 @@ export function Header(props) {
 
   return (
     <header>
-      <Wrapper>
+      <Wrapper className={styles.header}>
+        
         {desktop ? (
           <div className={styles.desktop}>
-            <PageTitle pagetitle={props.pagetitle} />
-            <NavLinks reveal={null} />
-            <SearchLogin />
+            <Grid container direction="row" alignItems="center" justifyContent="space-between" sx={{ width: '100%' }}>
+            <Grid item>
+              <PageTitle pagetitle={props.pagetitle} />
+            </Grid>
+            <Grid item>
+              <NavLinks reveal={null} />
+            </Grid>
+            <Grid item>
+              <SearchLogin />
+            </Grid>
+            </Grid>
           </div>
         ) : tablet ? (
           <div className={styles.tablet}>
