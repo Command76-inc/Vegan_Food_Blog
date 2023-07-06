@@ -16,14 +16,14 @@ export function NavLinks(props) {
       <ul>
         <li style={router.route.length === 1 ? activeLinkStyle : null}>
           <Link href="/">
-            <div onClick={router.route.length === 1 ? null : props.reveal}>
+            <div onClick={router.route.length === 1 ? ((e) => e.preventDefault()) : props.reveal}>
               Home
             </div>
           </Link>
         </li>
         <li style={router.route.includes("posts") ? activeLinkStyle : null}>
           <Link href="/app/posts/all_posts">
-            <div onClick={router.route.includes("posts") ? null : props.reveal}>
+            <div onClick={router.route.includes("posts") ? ((e) => e.preventDefault()) : props.reveal}>
               Blog
             </div>
           </Link>
@@ -37,7 +37,7 @@ export function NavLinks(props) {
             <div
               onClick={
                 router.route.includes("local_dining_areas")
-                  ? null
+                  ? ((e) => e.preventDefault())
                   : props.reveal
               }
             >
@@ -46,18 +46,18 @@ export function NavLinks(props) {
           </Link>
         </li>
         <li style={router.route.includes("recipes") ? activeLinkStyle : null}>
-          <Link href="/app/recipes">
+          <Link href="/app/recipes/all_recipes">
             <div
-              onClick={router.route.includes("recipes") ? null : props.reveal}
+              onClick={router.route.includes("recipes") ? ((e) => e.preventDefault()) : props.reveal}
             >
               Recipes
             </div>
           </Link>
         </li>
         <li style={router.route.includes("reviews") ? activeLinkStyle : null}>
-          <Link href="/app/reviews">
+          <Link href="/app/reviews/all_reviews">
             <div
-              onClick={router.route.includes("reviews") ? null : props.reveal}
+              onClick={router.route.includes("reviews") ? ((e) => e.preventDefault()) : props.reveal}
             >
               Reviews
             </div>
@@ -66,7 +66,7 @@ export function NavLinks(props) {
         <li style={router.route.includes("about_us") ? activeLinkStyle : null}>
           <Link href="/app/about_us">
             <div
-              onClick={router.route.includes("about_us") ? null : props.reveal}
+              onClick={router.route.includes("about_us") ? ((e) => e.preventDefault()) : props.reveal}
             >
               About Us
             </div>

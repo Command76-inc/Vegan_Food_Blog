@@ -44,7 +44,7 @@ export default function CreatePosts() {
       setTimeout(() => {
         if (status === 200) {
           setFlash(false);
-          return router.push("/posts/all_posts");
+          return router.push("/app/posts/all_posts");
         } else {
           setFlash(false);
         }

@@ -33,6 +33,11 @@ export default function FetchPosts(props) {
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No Post Data</p>;
 
+  const getContent = (content) => {
+    const regexp = /<img.*>/ig
+    return content.replace(regexp, ' [image] ')
+  }
+
   return (
     <>
       {data.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE).map((el) => (
@@ -44,7 +49,7 @@ export default function FetchPosts(props) {
         >
           <div className={props.className} key={el.id + "-div"}>
             <h2 key={el.id + "-h2"}>{el.title}</h2>
-            <p key={el.id + "-p"}>{el.content}</p>
+            <p key={el.id + "-p"}>{getContent(el.content)}</p>
             <small key={el.id + "-small"}>{el.tags}</small>
           </div>
         </Link>
