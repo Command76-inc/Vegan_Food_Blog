@@ -1,5 +1,3 @@
-// USING CREATE POST AS A TEMPLATE
-
 import { Wrapper } from "../../layout/wrapper";
 import { Alert } from "@mui/material";
 import styles from "./single_post.module.scss";
@@ -81,7 +79,7 @@ export default function UpdatePost() {
       setTimeout(() => {
         if (status === 200) {
           setFlash(false);
-          return router.push(`/app/posts/single_post?id=${data.id}`);
+          return router.push(`/app/posts/single_post?id=${getIdFromUrl()}`);
         } else {
           setFlash(false);
         }
