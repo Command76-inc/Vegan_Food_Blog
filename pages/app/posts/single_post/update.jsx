@@ -1,8 +1,10 @@
 import { Wrapper } from "../../layout/wrapper";
-import { Alert } from "@mui/material";
+import { Alert, Breadcrumbs, Typography } from "@mui/material";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import styles from "./single_post.module.scss";
 import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function UpdatePost() {
   const [flash, setFlash] = useState(false);
@@ -100,6 +102,21 @@ export default function UpdatePost() {
       ) : flash && status === 400 ? (
         <Alert color="error">{data}</Alert>
       ) : null}
+      <Breadcrumbs
+        separator={<NavigateNextIcon fontSize="large" />}
+        aria-label="breadcrumb"
+      >
+        <Link href="/">
+          <Typography fontSize="large">Home</Typography>
+        </Link>
+        <Link href="/app/posts/all_posts">
+          <Typography fontSize="large">All Posts</Typography>
+        </Link>
+        <Link href={`/app/posts/single_post?id=${getIdFromUrl()}`}>
+          <Typography fontSize="large">Posts</Typography>
+        </Link>
+        <Typography fontSize="large">Update Post</Typography>
+      </Breadcrumbs>
       <h1>{data.title}</h1>
       <form
         action="/api/post/update_single_post"
