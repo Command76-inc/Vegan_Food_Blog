@@ -14,7 +14,7 @@ function PageTitle(props) {
   return (
     <h1
       className={styles.title}
-      style={!props.isSmall ? { paddingLeft: "20px" } : null}
+      style={!props.isSmall ? { padding: "0px" } : null}
     >
       {props.pagetitle ? props.pagetitle : "The Vegan Blog"}
     </h1>
@@ -139,7 +139,7 @@ export function Header(props) {
         
         {desktop ? (
           <div className={styles.desktop}>
-            <Grid container direction="row" alignItems="center" justifyContent="space-between" sx={{ width: '100%' }}>
+            <Grid container direction="row" alignItems="flex-end" justifyContent="space-between" sx={{ width: '100%' }}>
             <Grid item>
               <PageTitle pagetitle={props.pagetitle} />
             </Grid>

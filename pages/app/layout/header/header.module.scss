@@ -1,11 +1,13 @@
 .header {
   background: green;
+  padding: 30px;
 }
 
 .title {
   font-family: thirsty-rough-two, sans-serif;
   font-style: normal;
   font-weight: 300;
+  margin: 0;
 }
 
 .desktop {
@@ -17,24 +19,10 @@
 .tablet {
   .title {
     text-align: center;
-    margin: 0;
-    padding: 20px 0;
   }
 
   li {
     padding: 0 1.5rem;
-  }
-
-  // FROM SEARCH LOGIN
-
-  div[class*="container"] {
-    padding: 10px 10px;
-    span[class*="searchContainer"] {
-      padding: 0 30px;
-      input[class*="searchbar"] {
-        width: 85%;
-      }
-    }
   }
 }
 
