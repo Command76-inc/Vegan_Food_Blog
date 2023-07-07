@@ -1,5 +1,3 @@
-//test
-
 import { Wrapper } from "../../layout/wrapper";
 import { Alert } from "@mui/material";
 import styles from "./single_post.module.scss";
@@ -13,6 +11,8 @@ export default function UpdatePost() {
 
   const bodyContent = useRef(null);
   const [data, setData] = useState(null);
+  const [tags, setTags] = useState("Getting Tags");
+
   const [isLoading, setLoading] = useState(false);
   const getIdFromUrl = () => {
     if (typeof window !== undefined) {
@@ -39,6 +39,7 @@ export default function UpdatePost() {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
+        setTags(data.tags);
         setLoading(false);
       })
       .catch((error) => console.error("Error: ", error));
@@ -54,12 +55,12 @@ export default function UpdatePost() {
     event.preventDefault();
     const f = new FormData();
 
-    f.appead("id", getIdFromUrl)
-    f.append("content", document.getElementById("contentBody").innerHTML);
+    f.append("id", getIdFromUrl());
+    f.append("content", bodyContent.current.innerHTML);
     f.append("tags", event.target.tags.value);
 
     const res = await fetch("/api/post/update_single_post", {
-      method: "POST",
+      method: "PUT",
       body: f,
     });
 
@@ -101,11 +102,11 @@ export default function UpdatePost() {
       ) : null}
       <h1>{data.title}</h1>
       <form
-        action="/api/post/create_post"
-        method="post"
+        action="/api/post/update_single_post"
+        method="put"
         className={styles["form-container"]}
-        name="publish"
-        id="publish"
+        name="update"
+        id="update"
         onSubmit={publishUpdate}
       >
         <div
@@ -117,10 +118,10 @@ export default function UpdatePost() {
         ></div>
         <input
           type="text"
-          placeholder={data.tags}
+          placeholder={tags}
           name="tags"
           id="tags"
-          value={data.tags}
+          value={tags}
           onChange={(e) => setTags(e.target.value)}
         />
       </form>
@@ -128,10 +129,10 @@ export default function UpdatePost() {
         Cancel
       </button>
       <input
-        className={styles.publish}
+        className={styles.update}
         type="submit"
-        form="publish"
-        value="Publish"
+        form="update"
+        value="Update"
       />
     </Wrapper>
   );
