@@ -44,35 +44,35 @@ export function SearchLogin(props) {
   });
 
   return (
-    <Grid container className={styles.container} ref={containerRef}>
-      {getWidth()}
-      <Grid container item xs={10} direction="row" className={styles.searchContainer}>
-        <Grid item xs={9}>
-        <TextField
-          sx={{ 
-            '& .MuiInputBase-root': {
-              background: 'white', 
-            }, 
-            '& .MuiInputBase-input': {
-              padding: '10px 10px'
-            }
-          }}
-          fullWidth 
-          placeholder="Search..."
-          className={styles.searchbar}
-        />
+    <Grid container direction="row" className={styles.container} ref={containerRef} justifyContent="center">
+      <Grid container item xs className={styles.searchContainer}>
+        <Grid item xs>
+          <TextField
+            sx={{ 
+              '& .MuiInputBase-root': {
+                background: 'white', 
+              }, 
+              '& .MuiInputBase-input': {
+                padding: '5px'
+              }
+            }}
+            fullWidth 
+            placeholder="Search..."
+            className={styles.searchbar}
+          />
         </Grid>
         <Grid item>
-        <Button
-          variant="outlined"
-          className={styles.searchBtn}
-        >
-          <SearchIcon fontSize="medium" />
-        </Button>
+          <Button
+            variant="outlined"
+            className={styles.searchBtn}
+            size="small" 
+          >
+            <SearchIcon fontSize="small" />
+          </Button>
         </Grid>
       </Grid>
-      <Grid item xs={2}>
-        <Button className={styles.login}>Login</Button>
+      <Grid item>
+        <Button size="small" className={styles.login}>Login</Button>
       </Grid>
     </Grid>
   );

@@ -1,10 +1,4 @@
 .container {
-  box-sizing: border-box;
-  @media screen and (max-width: 416px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
 
   & a {
     color: white;
@@ -15,33 +9,27 @@
   }
 
   .searchContainer {
-    box-sizing: border-box;
+    margin-right: 5px;
+    max-width: 600px;
 
     .searchBtn {
       background: #2044E0;
       color: white;
       height: 100%;
+      min-width: 0px;
     }
   }
 
   .login {
-    box-sizing: border-box;
-    display: inline;
-    width: 20%;
-    padding: 10px;
-    border: 1px solid darkgreen;
-    background: darkgreen;
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px black;
+    background: white;
 
     &:hover {
       background-color: seagreen;
       cursor: pointer;
     }
+  }
 
-    @media screen and (max-width: 416px) {
-      margin-top: 20px;
-      width: 50%;
-    }
+  @media screen and (max-width: 629px) {
+    padding: 20px;
   }
 }
