@@ -28,13 +28,11 @@ export default function CreatePosts() {
 
     const resBody = await res.json();
 
+    setFlash(true);
+    setData(resBody.status);
     if (res.status == 200) {
-      setFlash(true);
-      setData(resBody.status);
       setStatus(200);
     } else {
-      setFlash(true);
-      setData(resBody.status);
       setStatus(400);
     }
   };
@@ -42,11 +40,10 @@ export default function CreatePosts() {
   useEffect(() => {
     if (flash) {
       setTimeout(() => {
+        setFlash(false);
+
         if (status === 200) {
-          setFlash(false);
           return router.push("/app/posts/all_posts");
-        } else {
-          setFlash(false);
         }
       }, 5000);
     }

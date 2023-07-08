@@ -9,6 +9,7 @@ const description =
   "The Vegan Blog is a one stop destination for all your vegan essentials";
 
 export default function SinglePost(props) {
+  const admin = true;
   const bodyContent = useRef(null);
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
@@ -53,6 +54,7 @@ export default function SinglePost(props) {
 
   return (
     <Wrapper className={props.className}>
+      {admin ? <Link href={`/app/posts/single_post/update?id=${data.id}`}>Update Single Post</Link> : null}
       <main className={styles["post-container"]}>
         <h2>{data.title}</h2>
         <div className={styles["content-body"]} ref={bodyContent}></div>
