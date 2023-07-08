@@ -1,3 +1,5 @@
+$hamburger-animation-timing: 300ms;
+
 .header {
   background: green;
   padding: 30px;
@@ -20,13 +22,10 @@
   .title {
     text-align: center;
   }
-
-  li {
-    padding: 0 1.5rem;
-  }
 }
 
 .small-mobile {
+
   .title {
     margin: 0;
   }
@@ -43,67 +42,90 @@
         background-color: darkgreen;
       }
     }
-  }
 
-  div[class*="container"] {
-    padding: 10px 10px;
-    input[class*="searchbar"] {
-      width: 80%;
+    li:nth-child(1) {
+      border-top: 3px solid silver;
     }
   }
 
-  .hamburger {
+  .hamburger-container {
     z-index: 4;
     position: fixed;
-    height: 5px;
-    width: 50px;
     right: 20px;
-    top: 33px;
-    background-color: silver;
+    top: 27px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
 
     &:hover {
       cursor: pointer;
     }
+  }
+
+  .hamburger {
+    height: 5px;
+    width: 50px;
+    background-color: white;
+    transition: transform 500ms ease;
+    border-radius: 3px;
 
     &::before {
       content: " ";
-      white-space: pre;
+      display: block;
       height: 5px;
       width: 50px;
-      background-color: silver;
-      position: fixed;
-      top: 23px;
-      transition: top 500ms ease;
+      background-color: white;
+      border-radius: 3px;
+      position: relative;
+      top: 10px;
+      transition: transform $hamburger-animation-timing ease, top $hamburger-animation-timing ease $hamburger-animation-timing;
     }
     &::after {
       content: " ";
-      white-space: pre;
+      display: block;
       height: 5px;
       width: 50px;
-      background-color: silver;
-      position: fixed;
-      top: 43px;
-      transition: top 500ms ease;
+      background-color: white;
+      border-radius: 3px;
+      position: relative;
+      top: -15px;
+      transition: transform $hamburger-animation-timing ease, top $hamburger-animation-timing ease $hamburger-animation-timing;
     }
   }
 
+  .active {
+    transform: rotate(45deg);
+    transition: transform $hamburger-animation-timing ease $hamburger-animation-timing;
+  }
+
   .active::before {
-    top: 33px;
+    // top: 53px;
+    top: 0;
+    transform: rotate(90deg);
+    transition: transform $hamburger-animation-timing ease $hamburger-animation-timing, top $hamburger-animation-timing ease;
   }
 
   .active::after {
-    top: 33px;
+    // top: 83px;
+    top: -5px;
+    transform: rotate(90deg);
+    transition: transform $hamburger-animation-timing ease $hamburger-animation-timing, top $hamburger-animation-timing ease;
   }
 
   .offset-menu {
     box-sizing: border-box;
     position: fixed;
-    padding-bottom: 10px;
     background-color: #4f7942;
     z-index: 3;
     border-bottom: 3px solid silver;
     width: 100%;
     left: 0;
+
+    .title {
+      padding: 30px 0 15px 20px;
+      background-color: green;
+    }
   }
 }
 

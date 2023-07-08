@@ -14,7 +14,7 @@ function PageTitle(props) {
   return (
     <h1
       className={styles.title}
-      style={!props.isSmall ? { padding: "0px" } : null}
+      // style={!props.isSmall ? { padding: "0px" } : null}
     >
       {props.pagetitle ? props.pagetitle : "The Vegan Blog"}
     </h1>
@@ -60,11 +60,16 @@ function SmallMobile(props) {
       {parseInt(props.top.top) <= 0 ? (
         <PageTitle pagetitle={props.pagetitle} />
       ) : null}
-      <div
-        id="hamburger"
-        className={styles.hamburger}
+      <div 
         onClick={props.reveal}
-      ></div>
+        className={styles['hamburger-container']}
+        >
+        <div
+          id="hamburger"
+          className={styles.hamburger} 
+          // onClick={props.reveal}
+        ></div>
+      </div>
       <div
         id="offset-menu"
         className={styles["offset-menu"]}
@@ -139,7 +144,7 @@ export function Header(props) {
         
         {desktop ? (
           <div className={styles.desktop}>
-            <Grid container direction="row" alignItems="flex-end" justifyContent="space-between" sx={{ width: '100%' }}>
+            <Grid container direction="row" alignItems="flex-end" justifyContent="space-between">
             <Grid item>
               <PageTitle pagetitle={props.pagetitle} />
             </Grid>
