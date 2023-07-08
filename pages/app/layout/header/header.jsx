@@ -12,10 +12,7 @@ import Overlay from "../overlay";
 
 function PageTitle(props) {
   return (
-    <h1
-      className={styles.title}
-      // style={!props.isSmall ? { padding: "0px" } : null}
-    >
+    <h1 className={styles.title}>
       {props.pagetitle ? props.pagetitle : "The Vegan Blog"}
     </h1>
   );
@@ -67,7 +64,6 @@ function SmallMobile(props) {
         <div
           id="hamburger"
           className={styles.hamburger} 
-          // onClick={props.reveal}
         ></div>
       </div>
       <div
