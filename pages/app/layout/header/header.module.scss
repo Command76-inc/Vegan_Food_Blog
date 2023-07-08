@@ -100,14 +100,12 @@ $hamburger-animation-timing: 300ms;
   }
 
   .active::before {
-    // top: 53px;
     top: 0;
     transform: rotate(90deg);
     transition: transform $hamburger-animation-timing ease $hamburger-animation-timing, top $hamburger-animation-timing ease;
   }
 
   .active::after {
-    // top: 83px;
     top: -5px;
     transform: rotate(90deg);
     transition: transform $hamburger-animation-timing ease $hamburger-animation-timing, top $hamburger-animation-timing ease;

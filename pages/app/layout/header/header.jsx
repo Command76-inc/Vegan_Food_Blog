@@ -110,11 +110,10 @@ export function Header(props) {
         .getPropertyValue("top");
       if (parseInt(topPosition) >= 0) {
         setTop({ top: -parseInt(height) + 3 + "px" });
-        offsetMenu.style.transition = "top 500ms ease";
       } else {
         setTop({ top: 0 });
-        offsetMenu.style.transition = "top 500ms ease";
       }
+      offsetMenu.style.transition = "top 500ms ease";
     }
   };
 
@@ -141,15 +140,15 @@ export function Header(props) {
         {desktop ? (
           <div className={styles.desktop}>
             <Grid container direction="row" alignItems="flex-end" justifyContent="space-between">
-            <Grid item>
-              <PageTitle pagetitle={props.pagetitle} />
-            </Grid>
-            <Grid item>
-              <NavLinks reveal={null} />
-            </Grid>
-            <Grid item>
-              <SearchLogin />
-            </Grid>
+              <Grid item>
+                <PageTitle pagetitle={props.pagetitle} />
+              </Grid>
+              <Grid item>
+                <NavLinks reveal={null} />
+              </Grid>
+              <Grid item>
+                <SearchLogin />
+              </Grid>
             </Grid>
           </div>
         ) : tablet ? (
@@ -158,16 +157,8 @@ export function Header(props) {
             <NavLinks reveal={null} />
             <SearchLogin />
           </div>
-        ) : smallMobile ? (
-          <SmallMobile
-            pagetitle={props.pagetitle}
-            reveal={reveal}
-            top={top}
-            getInitialTop={getInitialTop}
-            isSmallMobile={tablet}
-          />
         ) : (
-          <TinyMobile
+          <SmallMobile
             pagetitle={props.pagetitle}
             reveal={reveal}
             top={top}
