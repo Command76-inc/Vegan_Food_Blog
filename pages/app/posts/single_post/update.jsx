@@ -82,11 +82,10 @@ export default function UpdatePost() {
   useEffect(() => {
     if (flash) {
       setTimeout(() => {
+        setFlash(false);
+
         if (status === 200) {
-          setFlash(false);
           return router.push(`/app/posts/single_post?id=${getIdFromUrl()}`);
-        } else {
-          setFlash(false);
         }
       }, 5000);
     }

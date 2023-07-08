@@ -42,11 +42,11 @@ export default function CreatePosts() {
   useEffect(() => {
     if (flash) {
       setTimeout(() => {
+        setFlash(false);
+
         if (status === 200) {
           setFlash(false);
           return router.push("/app/posts/all_posts");
-        } else {
-          setFlash(false);
         }
       }, 5000);
     }
