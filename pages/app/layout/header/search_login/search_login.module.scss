@@ -1,3 +1,7 @@
+$tablet: 1149px;
+$mobile: 629px;
+$small-mobile: 415px;
+
 .container {
 
   & a {
@@ -10,7 +14,7 @@
 
   .searchContainer {
     margin-right: 5px;
-    max-width: 600px;
+    max-width: 520px;
 
     .searchBtn {
       background: #2044E0;
@@ -29,8 +33,39 @@
     }
   }
 
+  @media screen and (max-width: $tablet) {
+    .login {
+      position: absolute;
+      top: 23px;
+      right: 30px;
+    }
+  }
+
   // Mobile styling
-  @media screen and (max-width: 629px) {
+  @media screen and (max-width: $mobile) {
     padding: 20px;
+
+    .login {
+      right: auto;
+      left: 30px;
+      background: none;
+      color: white;
+      font-size: 1.5em;
+    }
+
+    .login-icon {
+      font-size: 1.5em;
+      margin-right: 20px;
+    }
+  }
+
+  @media screen and (max-width: $small-mobile) {
+    .login {
+      font-size: 1.3em;
+    }
+
+    .login-icon {
+      font-size: 1.3em;
+    }
   }
 }

@@ -1,17 +1,77 @@
-.main {
+.home-container {
   background-color: #FFF0AD;
-  
-  .section {
-    .sectionHeading {
-      text-align: center;
-    }
-    div {
-      article {
-        .article {
-          padding: 20px;
 
-          & div {
-            border: 3px solid darkgrey;
+  .intro {
+    position: relative;
+    font-family: thirsty-rough-two, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    margin: 0;
+    font-size: 2em;
+    color: #2044E0;
+    min-height: 400px;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .svg-wrapper {
+      position: absolute;
+      max-width: 100px;
+    }
+
+    .svg-wrapper:nth-child(1) {
+      top: 20px;
+      right: 50px;
+      transform: rotate(-35deg);
+    }
+
+    .svg-wrapper:nth-child(2) {
+      top: 20px;
+      left: 50px;
+      transform: scaleX(-1) rotate(-35deg);
+    }
+
+    .svg-wrapper:nth-child(3) {
+      bottom: 20px;
+      left: 80px;
+      transform: rotate(-35deg);
+    }
+
+    .svg-wrapper:nth-child(4) {
+      bottom: 20px;
+      right: 70px;
+      transform: scaleX(-1) rotate(-35deg);
+    }
+
+    .flower-1 svg path{
+      // Color blue: #2044E0
+      // filter: invert(19%) sepia(73%) saturate(3486%) hue-rotate(226deg) brightness(95%) contrast(98%);
+      stroke: blue;
+      stroke-width: 3px;
+    }
+
+    p {
+      width: 70%;
+    }
+  }
+  
+  .main {
+    background-color: black;
+    
+    .section {
+      .sectionHeading {
+        text-align: center;
+      }
+      div {
+        article {
+          .article {
+            padding: 20px;
+  
+            & div {
+              border: 3px solid darkgrey;
+            }
           }
         }
       }

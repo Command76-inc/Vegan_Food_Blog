@@ -1,4 +1,5 @@
-$tablet: 630px;
+$mobile: 630px;
+$small-mobile: 415px;
 
 .banner {
   background-image: url("https://images.unsplash.com/photo-1493770348161-369560ae357d?ixid=M3w0NjI5OTh8MHwxfGFsbHx8fHx8fHx8fDE2ODcwMjAzMTZ8&ixlib=rb-4.0.3");
@@ -27,7 +28,7 @@ $tablet: 630px;
     font-size: 3em;
   }
 
-  @media screen and (max-width: $tablet) {
+  @media screen and (max-width: $mobile) {
     .slogan {
       font-size: 1.9em;
     }
@@ -35,6 +36,17 @@ $tablet: 630px;
     .slogan2 {
       font-size: 2.15em;
       top: -15px;
+    }
+
+    @media screen and (max-width: $small-mobile) {
+      .slogan {
+        font-size: 1.5em;
+      }
+
+      .slogan2 {
+        font-size: 1.7em;
+        top: -12px;
+      }
     }
   }
 }

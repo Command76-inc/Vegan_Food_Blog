@@ -1,5 +1,13 @@
 import styles from "./search_login.module.scss";
-import SearchIcon from "@mui/icons-material/Search";
+
+const imageLoader = ({ src, width, quality }) => {
+  return `http://localhost:3000/${src}?w=${width}&q=${quality || 75}`
+}
+
+import { 
+  Search as SearchIcon, 
+  AccountCircle
+} from "@mui/icons-material";
 import { 
   TextField, 
   Button, 
@@ -72,7 +80,10 @@ export function SearchLogin(props) {
         </Grid>
       </Grid>
       <Grid item>
-        <Button size="small" className={styles.login}>Login</Button>
+        <Button size="small" className={styles.login}>
+          <AccountCircle className={styles["login-icon"]} />
+            Login
+        </Button>
       </Grid>
     </Grid>
   );
