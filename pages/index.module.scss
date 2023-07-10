@@ -1,3 +1,5 @@
+$small-mobile: 415px;
+
 .home-container {
   background-color: #FFF0AD;
 
@@ -9,7 +11,7 @@
     margin: 0;
     font-size: 2em;
     color: #2044E0;
-    min-height: 400px;
+    min-height: 600px;
     padding: 50px;
     display: flex;
     align-items: center;
@@ -23,42 +25,55 @@
 
     .svg-wrapper:nth-child(1) {
       top: 20px;
-      right: 50px;
+      right: 72px;
       transform: rotate(-35deg);
+      // Color green: #92B72C
+      filter: invert(61%) sepia(81%) saturate(365%) hue-rotate(35deg) brightness(92%) contrast(94%);
     }
 
     .svg-wrapper:nth-child(2) {
       top: 20px;
-      left: 50px;
+      left: 72px;
       transform: scaleX(-1) rotate(-35deg);
+      // Color pink: #FB2FA3
+      filter: invert(37%) sepia(71%) saturate(4451%) hue-rotate(305deg) brightness(98%) contrast(101%);
     }
 
     .svg-wrapper:nth-child(3) {
       bottom: 20px;
       left: 80px;
       transform: rotate(-35deg);
+      // Color yellow: #F9B501
+      filter: invert(84%) sepia(23%) saturate(6746%) hue-rotate(360deg) brightness(99%) contrast(98%);
     }
 
     .svg-wrapper:nth-child(4) {
       bottom: 20px;
       right: 70px;
       transform: scaleX(-1) rotate(-35deg);
-    }
-
-    .flower-1 svg path{
-      // Color blue: #2044E0
-      // filter: invert(19%) sepia(73%) saturate(3486%) hue-rotate(226deg) brightness(95%) contrast(98%);
-      stroke: blue;
-      stroke-width: 3px;
+      // Color gray: #818084
+      filter: invert(55%) sepia(5%) saturate(237%) hue-rotate(214deg) brightness(91%) contrast(80%);
     }
 
     p {
       width: 70%;
+      z-index: 3;
+    }
+
+    @media screen and (max-width: $small-mobile) {
+      .svg-wrapper {
+        max-width: 80px;
+      }
+
+      p {
+        font-size: 0.8em;
+        width: 100%;
+      }
     }
   }
   
   .main {
-    background-color: black;
+    background-color: #FFF7DB;
     
     .section {
       .sectionHeading {
