@@ -4,7 +4,7 @@ import { Wrapper } from "../../layout/wrapper";
 import styles from "../recipes.module.scss";
 import Link from "next/link";
 
-export default function CreateRecipe(props) {
+export default function UpdateRecipe(props) {
   return (
     <Wrapper className={props.className}>
       <main className={styles["recipes-container"]}>
@@ -18,9 +18,12 @@ export default function CreateRecipe(props) {
           <Link href="/app/recipes/all_recipes">
             <Typography fontSize="large">All Recipes</Typography>
           </Link>
-          <Typography fontSize="large">Create Recipe</Typography>
+          <Link href={`/app/recipes/single_recipe?id=${"MongoDB recipe id goes here"}`}>
+            <Typography fontSize="large">Single Recipe</Typography>
+          </Link>
+          <Typography fontSize="large">Update Recipe</Typography>
         </Breadcrumbs>
-        <h2>Create Recipe</h2>
+        <h2>Update Recipe</h2>
       </main>
     </Wrapper>
   );

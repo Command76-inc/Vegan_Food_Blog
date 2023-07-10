@@ -3,6 +3,9 @@ import { Header } from "../layout/header/header";
 import { Wrapper } from "../layout/wrapper";
 import { Footer } from "../layout/footer/footer";
 import styles from "./about_us.module.scss";
+import { Breadcrumbs, Typography } from "@mui/material";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import Link from "next/link";
 
 const title = "About Us | The Vegan Blog";
 const pageTitle = "About Us";
@@ -13,6 +16,15 @@ export default function AboutUs(props) {
   return (
     <Wrapper className={props.className}>
       <main className={styles["about-us-section"]}>
+        <Breadcrumbs
+          separator={<NavigateNextIcon fontSize="large" />}
+          aria-label="breadcrumb"
+        >
+          <Link href="/">
+            <Typography fontSize="large">Home</Typography>
+          </Link>
+          <Typography fontSize="large">About Us</Typography>
+        </Breadcrumbs>
         <h2>About Us</h2>
         <h3>Welcome to our vegan blog site!</h3>{" "}
         <p>

@@ -1,4 +1,6 @@
 import { Wrapper } from "../../layout/wrapper";
+import { Breadcrumbs, Typography } from "@mui/material";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useState, useEffect, useRef } from "react";
 import styles from "./single_post.module.scss";
 import Link from "next/link";
@@ -54,7 +56,23 @@ export default function SinglePost(props) {
 
   return (
     <Wrapper className={props.className}>
-      {admin ? <Link href={`/app/posts/single_post/update?id=${data.id}`}>Update Single Post</Link> : null}
+      <Breadcrumbs
+        separator={<NavigateNextIcon fontSize="large" />}
+        aria-label="breadcrumb"
+      >
+        <Link href="/">
+          <Typography fontSize="large">Home</Typography>
+        </Link>
+        <Link href="/app/posts/all_posts">
+          <Typography fontSize="large">All Posts</Typography>
+        </Link>
+        <Typography fontSize="large">Single Post</Typography>
+      </Breadcrumbs>
+      {admin ? (
+        <Link href={`/app/posts/single_post/update?id=${data.id}`}>
+          Update Single Post
+        </Link>
+      ) : null}
       <main className={styles["post-container"]}>
         <h2>{data.title}</h2>
         <div className={styles["content-body"]} ref={bodyContent}></div>

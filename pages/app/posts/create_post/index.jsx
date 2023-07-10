@@ -1,8 +1,10 @@
 import { Wrapper } from "../../layout/wrapper";
-import { Alert } from "@mui/material";
+import { Alert, Breadcrumbs, Typography } from "@mui/material";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import styles from "./create_posts.module.scss";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function CreatePosts() {
   const [title, setTitle] = useState("Set Title");
@@ -56,6 +58,18 @@ export default function CreatePosts() {
       ) : flash && status === 400 ? (
         <Alert color="error">{data}</Alert>
       ) : null}
+      <Breadcrumbs
+        separator={<NavigateNextIcon fontSize="large" />}
+        aria-label="breadcrumb"
+      >
+        <Link href="/">
+          <Typography fontSize="large">Home</Typography>
+        </Link>
+        <Link href="/app/posts/all_posts">
+          <Typography fontSize="large">All Posts</Typography>
+        </Link>
+        <Typography fontSize="large">Create Post</Typography>
+      </Breadcrumbs>
       <h1>Create Post</h1>
       <form
         action="/api/post/create_post"

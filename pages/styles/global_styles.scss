@@ -2,6 +2,10 @@
   // MUI breadcrumbs documentation https://mui.com/material-ui/api/breadcrumbs/
   .MuiBreadcrumbs-root {
     cursor: pointer;
+    color: white;
+    & li:hover {
+      color: gainsboro;
+    }
   }
 
   padding: 0;
