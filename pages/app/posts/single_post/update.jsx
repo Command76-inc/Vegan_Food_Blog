@@ -111,7 +111,7 @@ export default function UpdatePost() {
           <Typography fontSize="large">All Posts</Typography>
         </Link>
         <Link href={`/app/posts/single_post?id=${getIdFromUrl()}`}>
-          <Typography fontSize="large">Posts</Typography>
+          <Typography fontSize="large">Single Post</Typography>
         </Link>
         <Typography fontSize="large">Update Post</Typography>
       </Breadcrumbs>

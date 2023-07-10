@@ -5,6 +5,9 @@ import { Wrapper } from "../layout/wrapper";
 import { Footer } from "../layout/footer/footer";
 import styles from "./local_dining_areas.module.scss";
 import { useEffect, useState } from "react";
+import { Breadcrumbs, Typography } from "@mui/material";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import Link from "next/link";
 
 const title = "Local Dining | The Vegan Blog";
 const pageTitle = "Local Dining";
@@ -146,6 +149,15 @@ export default function LocalDiningAreas(props) {
   return (
     <Wrapper className={props.className}>
       <main className={styles["local-dining-areas-container"]}>
+        <Breadcrumbs
+          separator={<NavigateNextIcon fontSize="large" />}
+          aria-label="breadcrumb"
+        >
+          <Link href="/">
+            <Typography fontSize="large">Home</Typography>
+          </Link>
+          <Typography fontSize="large">Local Dining</Typography>
+        </Breadcrumbs>
         <h2>Local Dining</h2>
         <h4>Restaurants</h4>
         <div className={styles["restaurant-list"]}>
