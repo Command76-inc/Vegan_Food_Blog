@@ -1,9 +1,5 @@
 import styles from "./search_login.module.scss";
 
-const imageLoader = ({ src, width, quality }) => {
-  return `http://localhost:3000/${src}?w=${width}&q=${quality || 75}`
-}
-
 import { 
   Search as SearchIcon, 
   AccountCircle
