@@ -20,6 +20,8 @@ export default function HomePagePosts() {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log("POST DATA");
+        console.log(data);
         setData(data);
         setLoading(false);
       })

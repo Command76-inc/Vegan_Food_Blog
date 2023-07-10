@@ -71,12 +71,7 @@ function SmallMobile(props) {
         className={styles["offset-menu"]}
         style={{ ...props.top }}
       >
-        {!props.isSmallMobile ? (
-          <PageTitle
-            pagetitle={props.pagetitle}
-            isSmall={props.isSmallMobile}
-          />
-        ) : null}
+        <div className={styles["top-section"]}></div>
         <NavLinks reveal={props.reveal} />
         <SearchLogin />
       </div>
@@ -109,7 +104,7 @@ export function Header(props) {
         .getComputedStyle(offsetMenu)
         .getPropertyValue("top");
       if (parseInt(topPosition) >= 0) {
-        setTop({ top: -parseInt(height) + 3 + "px" });
+        setTop({ top: -parseInt(height) + "px" });
       } else {
         setTop({ top: 0 });
       }

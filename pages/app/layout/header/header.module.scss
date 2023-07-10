@@ -1,8 +1,16 @@
 $hamburger-animation-timing: 300ms;
+$small-mobile: 416px;
+$tablet: 1160px;
 
 .header {
   background: green;
   padding: 30px;
+}
+
+@media screen and (max-width: $tablet) {
+  .header {
+    padding: 30px 10px;
+  }
 }
 
 .title {
@@ -12,12 +20,6 @@ $hamburger-animation-timing: 300ms;
   margin: 0;
 }
 
-.desktop {
-  .title {
-    
-  }
-}
-
 .tablet {
   .title {
     text-align: center;
@@ -25,10 +27,10 @@ $hamburger-animation-timing: 300ms;
 }
 
 .small-mobile {
-
   .title {
     margin: 0;
   }
+
   ul {
     flex-direction: column;
 
@@ -57,6 +59,7 @@ $hamburger-animation-timing: 300ms;
     height: 50px;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     &:hover {
       cursor: pointer;
@@ -120,9 +123,46 @@ $hamburger-animation-timing: 300ms;
     width: 100%;
     left: 0;
 
+    .top-section {
+      height: 100px;
+      background: black;
+    }
+  }
+
+  @media screen and (max-width: $small-mobile) {
     .title {
-      padding: 30px 0 15px 20px;
-      background-color: green;
+      font-size: 1.4em;
+    }
+
+    .hamburger-container {
+      top: 22px;
+    }
+
+    .hamburger, .hamburger::before, .hamburger::after {
+      width: 30px;
+      height: 3px;
+    }
+
+    .hamburger::before {
+      top: 8px;
+    }
+
+    .hamburger::after {
+      top: -11px;
+    }
+
+    .active::before {
+      top: 0;
+    }
+
+    .active::after {
+      top: -3px;
+    }
+
+    .offset-menu {
+      .top-section {
+        height: 93px;
+      }
     }
   }
 }

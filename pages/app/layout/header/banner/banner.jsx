@@ -7,11 +7,10 @@ export function Banner(props) {
   if (props.showBanner) {
     ShowBanner = (
       <Wrapper className={styles.banner}>
-        <h2 className="h2">Let's be Vegan together.</h2>
-        <p className="description">
-          We'd like to walk along with you on your journey to a cruelty free and
-          plant inspired lifestyle. You want to know we to eat, we can tell you.
-        </p>
+        <div className={styles["slogan-container"]}>
+          <div className={styles.slogan}>Ignore the meat</div>
+          <div className={styles.slogan2}>Totally vegan</div>
+        </div>
       </Wrapper>
     );
   } else {
