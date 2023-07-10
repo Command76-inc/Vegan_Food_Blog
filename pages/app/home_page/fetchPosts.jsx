@@ -1,5 +1,6 @@
 import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
+import { Grid } from "@mui/material";
 import Link from "next/link";
 
 export default function HomePagePosts() {
@@ -34,25 +35,26 @@ export default function HomePagePosts() {
   return (
     <section className={styles.section}>
       <h3 className={styles.sectionHeading}>Latest Blog</h3>
-      <div className="pure-g">
-        {data.map((post) => (
-          <Link
-            href={`/app/posts/single_post?id=${post.id}`}
-            passHref
-            legacyBehavior
-            key={post.id + "-link"}
-          >
-            <article
-              className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4"
-              key={post.id + "-article"}
+      <Grid container>
+        {data.map((post) => {
+          const date = new Date(post.updatedAt);
+
+          return (
+          <Grid key={post.id} className={styles['post-container']} item  xs={12} md={6} lg={3}>
+            <Link
+              href={`/app/posts/single_post?id=${post.id}`}
+              passHref
+              legacyBehavior
             >
-              <div className={styles.article} key={post.id + "-div1"}>
-                <div key={post.id + "-div2"}>{post.title}</div>
-              </div>
-            </article>
-          </Link>
-        ))}
-      </div>
+                <article className={styles.post}>
+                  <div>{post.title}</div>
+                  <div>{post.content}</div>
+                  <div>{date.getFullYear()}</div>
+                </article>
+            </Link>
+          </Grid>
+        )})}
+      </Grid>
     </section>
   );
 }
