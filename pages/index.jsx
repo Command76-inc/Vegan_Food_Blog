@@ -19,21 +19,40 @@ export default function HomePage() {
     <div className={styles["home-container"]}>
       <div className={styles.intro}>
         <div className={styles["svg-wrapper"]}>
-          <Image className={styles["flower-1"]} src={BRANCH_1_SVG} alt="Flower" />
+          <Image
+            className={styles["flower-1"]}
+            src={BRANCH_1_SVG}
+            alt="Flower"
+          />
         </div>
         <div className={styles["svg-wrapper"]}>
-          <Image className={styles["flower-1"]} src={BRANCH_1_SVG} alt="Flower" />
+          <Image
+            className={styles["flower-1"]}
+            src={BRANCH_1_SVG}
+            alt="Flower"
+          />
         </div>
         <div className={styles["svg-wrapper"]}>
-          <Image className={styles["flower-1"]} src={BRANCH_1_SVG} alt="Flower" />
+          <Image
+            className={styles["flower-1"]}
+            src={BRANCH_1_SVG}
+            alt="Flower"
+          />
         </div>
         <div className={styles["svg-wrapper"]}>
-          <Image className={styles["flower-1"]} src={BRANCH_1_SVG} alt="Flower" />
+          <Image
+            className={styles["flower-1"]}
+            src={BRANCH_1_SVG}
+            alt="Flower"
+          />
         </div>
-        <p>We'd like to walk along with you on your journey to a cruelty free and
-          plant inspired lifestyle. You want to know we to eat, we can tell you.</p>
+        <p>
+          We'd like to walk along with you on your journey to a cruelty-free and
+          plant-inspired lifestyle. If you want to know what to eat, we can tell
+          you.
+        </p>
       </div>
-      
+
       <main className={styles.main}>
         <HomePagePosts />
         <HomePageRecipes />
