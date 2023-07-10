@@ -1,9 +1,16 @@
 $hamburger-animation-timing: 300ms;
 $small-mobile: 416px;
+$tablet: 1160px;
 
 .header {
   background: green;
   padding: 30px;
+}
+
+@media screen and (max-width: $tablet) {
+  .header {
+    padding: 30px 10px;
+  }
 }
 
 .title {
