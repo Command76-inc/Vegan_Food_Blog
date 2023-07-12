@@ -1,10 +1,20 @@
 * {
   // MUI breadcrumbs documentation https://mui.com/material-ui/api/breadcrumbs/
   .MuiBreadcrumbs-root {
-    cursor: pointer;
     color: white;
-    & li:hover {
-      color: gainsboro;
+    .MuiBreadcrumbs-separator:hover {
+      cursor: initial;
+      color: white;
+    }
+    & li {
+      &:last-child:hover {
+        cursor: initial;
+        color: white;
+      }
+      &:hover {
+        cursor: pointer;
+        color: gainsboro;
+      }
     }
   }
 
