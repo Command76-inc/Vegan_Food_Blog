@@ -12,8 +12,10 @@ async function saveFormData(fields, files) {
   // save to persistent data store
   const update = await db.Post;
   const getContent = (content) => {
-    const regexp = /<img.*?>/gi;
-    return content.replace(regexp, " [image] ");
+    const regexp = /<.*?>/gi;
+    const removedTags = content.replace(regexp, " ");
+    const replaceAmps = removedTags.replace(/&LT;.*?&GT;/gi, "");
+    return replaceAmps.replace(/(nbsp;|&nbsp;|&amp;)/gi, "");
   };
 
   const updateDoc = update.findByIdAndUpdate(
