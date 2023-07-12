@@ -34,7 +34,7 @@ export default function FetchPosts(props) {
   if (!data) return <p>No Post Data</p>;
 
   const getContent = (content) => {
-    const regexp = /<img.*>/ig
+    const regexp = /<img.*?>/ig
     return content.replace(regexp, ' [image] ')
   }
 

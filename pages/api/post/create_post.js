@@ -11,11 +11,16 @@ let formSchema = yup.object().shape({
 async function saveFormData(fields, files) {
   // save to persistent data store
   const post = await db.Post;
+  const getContent = (content) => {
+    const regexp = /<img.*?>/gi;
+    return content.replace(regexp, " [image] ");
+  };
 
   post.create({
     title: fields.title,
     content: fields.content,
     tags: fields.tags,
+    description: getContent(fields.content).slice(0, 50),
   });
 }
 

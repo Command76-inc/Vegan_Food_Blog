@@ -11,6 +11,10 @@ let formSchema = yup.object().shape({
 async function saveFormData(fields, files) {
   // save to persistent data store
   const update = await db.Post;
+  const getContent = (content) => {
+    const regexp = /<img.*?>/gi;
+    return content.replace(regexp, " [image] ");
+  };
 
   const updateDoc = update.findByIdAndUpdate(
     { _id: fields.id },
@@ -18,11 +22,12 @@ async function saveFormData(fields, files) {
       $set: {
         content: fields.content,
         tags: fields.tags,
+        description: getContent(fields.content).slice(0, 50),
       },
     }
   );
 
-  return updateDoc
+  return updateDoc;
 }
 
 async function validateFromData(fields, files) {
