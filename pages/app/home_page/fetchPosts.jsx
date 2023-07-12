@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import Link from "next/link";
 
 export default function HomePagePosts() {
@@ -32,26 +32,36 @@ export default function HomePagePosts() {
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No Post Data</p>;
 
+  const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
   return (
     <section className={styles.section}>
       <h3 className={styles.sectionHeading}>Latest Blog</h3>
-      <Grid container>
+      <Grid container spacing={5}>
         {data.map((post) => {
           const date = new Date(post.updatedAt);
 
           return (
-          <Grid key={post.id} className={styles['post-container']} item  xs={12} md={6} lg={3}>
-            <Link
-              href={`/app/posts/single_post?id=${post.id}`}
-              passHref
-              legacyBehavior
-            >
-                <article className={styles.post}>
-                  <div>{post.title}</div>
-                  <div>{post.content}</div>
-                  <div>{date.getFullYear()}</div>
-                </article>
-            </Link>
+          <Grid key={post.id} item xs={12} md={6} lg={3}>
+            <Box className={styles['post-container']}>
+              <Link
+                href={`/app/posts/single_post?id=${post.id}`}
+                passHref
+                legacyBehavior
+              >
+                <Box className={styles.post}>
+                  <Grid container direction="column" justifyContent="space-between" sx={{ height: "100%" }}>
+                    <Grid item xs>
+                      <Box sx={{ "word-break": "break-word" }}>
+                        <div className={styles.title}>{post.title}</div>
+                        <div className={styles.description}>{post.content}</div>
+                      </Box>
+                    </Grid>
+                      <div className={styles.date}>{`${month[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`}</div>
+                  </Grid>
+                </Box>
+              </Link>
+            </Box>
           </Grid>
         )})}
       </Grid>

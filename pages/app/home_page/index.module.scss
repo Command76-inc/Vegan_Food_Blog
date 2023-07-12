@@ -3,15 +3,38 @@
 
   .sectionHeading {
     font-size: 3em;
+    color: #6C4411;
+    margin: 30px 0;
+    border-bottom: 10px solid #6C4411;
   }
 
   .post-container {
-    background: green;
     padding: 30px;
-    // cursor: pointer;
+    background: white;
+    border: 10px solid #6C4411;
+    height: 100%;
+    min-height: 400px;
 
     .post {
       cursor: pointer;
+      height: 100%;
+
+      .title {
+        color: green;
+        font-size: 2em;
+      }
+
+      .description {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #404040;
+        overflow-wrap: break-word;
+        // margin: 20px 0;
+      }
+
+      .date {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #404040;
+      }
     }
 
     .post:hover {
