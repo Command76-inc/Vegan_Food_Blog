@@ -60,12 +60,20 @@ async function handlePostFormReq(req, res) {
   try {
     const { cleanedFields, files } = await formData;
     const isValid = await validateFromData(cleanedFields, files);
+    console.log(cleanedFields);
     if (!isValid) throw Error("invalid form schema");
 
     try {
-      await saveFormData(cleanedFields, files);
-      res.status(200).send({ status: "submitted" });
-      return;
+      if (cleanedFields.description !== undefined) {
+        await saveFormData(cleanedFields, files);
+        res.status(200).send({ status: "submitted" });
+        return;
+      } else {
+        res.status(500).send({
+          status: "Content body must not be empty, must have text in it.",
+        });
+        return;
+      }
     } catch (e) {
       res.status(500).send({ status: "something went wrong" });
       return;
