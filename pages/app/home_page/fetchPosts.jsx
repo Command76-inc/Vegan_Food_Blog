@@ -1,11 +1,13 @@
 import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
-import { Grid, Box } from "@mui/material";
+import { Grid, Box, Typography, useTheme } from "@mui/material";
 import Link from "next/link";
 
 export default function HomePagePosts() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
+
+  const { palette } = useTheme();
 
   useEffect(() => {
     setLoading(true);
@@ -39,10 +41,10 @@ export default function HomePagePosts() {
       <h3 className={styles.sectionHeading}>Latest Blog</h3>
       <Grid container spacing={5}>
         {data.map((post) => {
-          const date = new Date(post.updatedAt);
+          const date = new Date(post.createdAt);
 
           return (
-          <Grid key={post.id} item xs={12} md={6} lg={3}>
+          <Grid key={post.id} item xs={12} md={6} lg={4}>
             <Box className={styles['post-container']}>
               <Link
                 href={`/app/posts/single_post?id=${post.id}`}
@@ -53,11 +55,11 @@ export default function HomePagePosts() {
                   <Grid container direction="column" justifyContent="space-between" sx={{ height: "100%" }}>
                     <Grid item xs>
                       <Box sx={{ "word-break": "break-word" }}>
-                        <div className={styles.title}>{post.title}</div>
-                        <div className={styles.description}>{post.content}</div>
+                        <Typography variant="h1" color="customColor.main" className={styles.title}>{post.title}</Typography>
+                        <Typography color="customColor" className={styles.description}>{post.content}</Typography>
                       </Box>
                     </Grid>
-                      <div className={styles.date}>{`${month[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`}</div>
+                      <div className={styles.date}><i>{`Published: ${month[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`}</i></div>
                   </Grid>
                 </Box>
               </Link>

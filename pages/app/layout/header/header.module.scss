@@ -3,7 +3,7 @@ $small-mobile: 416px;
 $tablet: 1160px;
 
 .header {
-  background: green;
+  background: var(--mui-palette-primary-main);
   padding: 30px;
 }
 

@@ -76,7 +76,7 @@ export function SearchLogin(props) {
         </Grid>
       </Grid>
       <Grid item>
-        <Button size="small" className={styles.login}>
+        <Button size="small" variant="contained" className={styles.login}>
           <AccountCircle className={styles["login-icon"]} />
             Login
         </Button>
