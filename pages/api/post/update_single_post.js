@@ -1,6 +1,7 @@
 import { db } from "../../../lib/db";
 import formidable from "formidable";
 import * as yup from "yup";
+import * as postHelper from "../../utility/post_helper";
 
 let formSchema = yup.object().shape({
   id: yup.string().required(),
@@ -11,12 +12,6 @@ let formSchema = yup.object().shape({
 async function saveFormData(fields, files) {
   // save to persistent data store
   const update = await db.Post;
-  const getContent = (content) => {
-    const regexp = /<.*?>/gi;
-    const removedTags = content.replace(regexp, " ");
-    const replaceAmps = removedTags.replace(/&LT;.*?&GT;/gi, "");
-    return replaceAmps.replace(/(nbsp;|&nbsp;|&amp;)/gi, "");
-  };
 
   const updateDoc = update.findByIdAndUpdate(
     { _id: fields.id },
@@ -24,7 +19,7 @@ async function saveFormData(fields, files) {
       $set: {
         content: fields.content,
         tags: fields.tags,
-        description: getContent(fields.content).slice(0, 50),
+        description: postHelper.sanitizeContent(fields.content).slice(0, 50),
       },
     }
   );

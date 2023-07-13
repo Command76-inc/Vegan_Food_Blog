@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import Link from "next/link";
 import styles from "../posts.module.scss";
+import * as postHelper from "../../../utility/post_helper";
 
 export default function FetchPosts(props) {
   const [data, setData] = useState(null);
@@ -33,13 +34,6 @@ export default function FetchPosts(props) {
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No Post Data</p>;
 
-  const getContent = (content) => {
-    const regexp = /<.*?>/gi;
-    const removedTags = content.replace(regexp, " ");
-    const replaceAmps = removedTags.replace(/&LT;.*?&GT;/gi, "");
-    return replaceAmps.replace(/(nbsp;|&nbsp;|&amp;)/gi, "");
-  };
-
   return (
     <>
       {data.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE).map((el) => (
@@ -51,7 +45,7 @@ export default function FetchPosts(props) {
         >
           <div className={props.className} key={el.id + "-div"}>
             <h2 key={el.id + "-h2"}>{el.title}</h2>
-            <p key={el.id + "-p"}>{getContent(el.content)}</p>
+            <p key={el.id + "-p"}>{postHelper.sanitizeContent(el.content)}</p>
             <small key={el.id + "-small"}>{el.tags}</small>
           </div>
         </Link>
