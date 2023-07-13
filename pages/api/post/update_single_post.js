@@ -1,6 +1,7 @@
 import { db } from "../../../lib/db";
 import formidable from "formidable";
 import * as yup from "yup";
+import * as postHelper from "../../utility/post_helper";
 
 let formSchema = yup.object().shape({
   id: yup.string().required(),
@@ -18,11 +19,12 @@ async function saveFormData(fields, files) {
       $set: {
         content: fields.content,
         tags: fields.tags,
+        description: postHelper.sanitizeContent(fields.content).slice(0, 50),
       },
     }
   );
 
-  return updateDoc
+  return updateDoc;
 }
 
 async function validateFromData(fields, files) {
@@ -58,12 +60,20 @@ async function handlePostFormReq(req, res) {
   try {
     const { cleanedFields, files } = await formData;
     const isValid = await validateFromData(cleanedFields, files);
+    console.log(cleanedFields);
     if (!isValid) throw Error("invalid form schema");
 
     try {
-      await saveFormData(cleanedFields, files);
-      res.status(200).send({ status: "submitted" });
-      return;
+      if (cleanedFields.description !== undefined) {
+        await saveFormData(cleanedFields, files);
+        res.status(200).send({ status: "submitted" });
+        return;
+      } else {
+        res.status(500).send({
+          status: "Content body must not be empty, must have text in it.",
+        });
+        return;
+      }
     } catch (e) {
       res.status(500).send({ status: "something went wrong" });
       return;
