@@ -1,7 +1,4 @@
 // index.html
-import { ReplaceHead } from "./app/layout/head/head";
-import { Header } from "./app/layout/header/header";
-import { Footer } from "./app/layout/footer/footer";
 import styles from "./index.module.scss";
 import HomePagePosts from "./app/home_page/fetchPosts";
 import HomePageRecipes from "./app/home_page/fetchRecipes";

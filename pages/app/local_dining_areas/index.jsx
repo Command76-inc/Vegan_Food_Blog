@@ -1,8 +1,5 @@
 // console.log = console.warn = console.error = () => {};
-import { ReplaceHead } from "../layout/head/head";
-import { Header } from "../layout/header/header";
 import { Wrapper } from "../layout/wrapper";
-import { Footer } from "../layout/footer/footer";
 import styles from "./local_dining_areas.module.scss";
 import { useEffect, useState } from "react";
 import { Breadcrumbs, Typography } from "@mui/material";
