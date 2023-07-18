@@ -57,9 +57,6 @@ async function handlePostFormReq(req, res) {
     if (!isValid) throw Error("invalid form schema");
 
     try {
-      // await saveFormData(cleanedFields, files);
-      // res.status(200).send({ status: "submitted" });
-      // return;
       if (cleanedFields.description !== undefined) {
         await saveFormData(cleanedFields, files);
         res.status(200).send({ status: "submitted" });
