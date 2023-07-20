@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { Wrapper } from "../../wrapper";
 import styles from "./banner_styles.module.scss";
 
@@ -7,10 +8,12 @@ export function Banner(props) {
   if (props.showBanner) {
     ShowBanner = (
       <Wrapper className={styles.banner}>
-        <div className={styles["slogan-container"]}>
-          <div className={styles.slogan}>Ignore the meat</div>
-          <div className={styles.slogan2}>Totally vegan</div>
-        </div>
+        <Box className={styles["slogan-container"]}>
+          <Box className={styles["slogan-words-container"]}>
+            <div className={styles.slogan}>Ignore the meat</div>
+            <div className={styles.slogan2}>Totally vegan</div>
+          </Box>
+        </Box>
       </Wrapper>
     );
   } else {

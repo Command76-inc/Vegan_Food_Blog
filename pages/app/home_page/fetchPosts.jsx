@@ -38,7 +38,7 @@ export default function HomePagePosts() {
 
   return (
     <section className={styles.section}>
-      <h3 className={styles.sectionHeading}>Latest Blog</h3>
+      <Typography variant="h1Primary" component="h1" className={styles.sectionHeading}>Latest Blog</Typography>
       <Grid container spacing={5}>
         {data.map((post) => {
           const date = new Date(post.createdAt);
@@ -55,8 +55,8 @@ export default function HomePagePosts() {
                   <Grid container direction="column" justifyContent="space-between" sx={{ height: "100%" }}>
                     <Grid item xs>
                       <Box sx={{ "word-break": "break-word" }}>
-                        <Typography variant="h1" color="customColor.main" className={styles.title}>{post.title}</Typography>
-                        <Typography color="customColor" className={styles.description}>{post.content}</Typography>
+                        <Typography variant="h2Secondary" className={styles.title}>{post.title}</Typography>
+                        <Typography color="" className={styles.description}>{post.content}</Typography>
                       </Box>
                     </Grid>
                       <div className={styles.date}><i>{`Published: ${month[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`}</i></div>

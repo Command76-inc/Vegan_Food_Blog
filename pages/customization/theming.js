@@ -1,35 +1,144 @@
-import { experimental_extendTheme as extendedTheme } from "@mui/material/styles";
+import { 
+    experimental_extendTheme as extendedTheme, 
+    responsiveFontSizes 
+} from "@mui/material/styles";
 import { green, pink } from "@mui/material/colors";
 
-export const theme = extendedTheme({
+const white = "#FFF";
+const black = "#000";
+const darkGray = "#3B3B3B";
+const primaryGreen = "#008000";
+const secondaryBlue = "#1976D2";
+
+const desktop_media = "@media (max-width:1149px)";
+const tablet_media = "@media (max-width:629px)";
+const mobile_media = "@media (max-width:415px)";
+
+let theme = extendedTheme({
     colorSchemes: {
         light: {
             typography: {
-                h1: {
-                    // color: 'rgba(226,129,129,0.87)',
+                h1Primary: {
+                    fontFamily: [
+                        "thirsty-rough-two", 
+                        "sans-serif"
+                    ].join(","), 
+                    fontSize: "2rem"
+                }, 
+                h2Secondary: {
+                    fontFamily: [
+                        "harman-sans", 
+                        "sans-serif"
+                    ].join(","), 
+                    fontSize: "4rem", 
+                    lineHeight: "1", 
+                    [desktop_media]: {
+                        fontSize: "3rem"
+                    }, 
+                    [tablet_media]: {
+                        fontSize: "2rem"
+                    }, 
+                    [mobile_media]: {
+                        fontSize: "1rem"
+                    }
+                }, 
+                body1: {
+                    fontfamily: [
+                        "Roboto", 
+                        "Arial", 
+                        "Helvetica", 
+                        "sans-serif"
+                    ].join(",")
                 }
             }, 
             palette: {
                 primary: {
-                    main: "#008000", 
-                    contrastText: "#FFF"
+                    main: primaryGreen, 
+                    contrastText: white
                 }, 
                 secondary: {
-                    main: "#FFF"
+                    main: secondaryBlue
                 }, 
-                customColor: {
-                    main: "#FFF"
+                secondaryTwo: {
+                    main: "#FFF0AD"
+                }, 
+                accentPink: {
+                    main: "#FB2FA3"
+                }, 
+                accentYellow: { 
+                    main: "#F9B501"
+                }, 
+                accentGreen: {
+                    main: "#92B72C"
+                }, 
+                accentGray: {
+                    main: "#818084"
+                }, 
+                background: {
+                    main: white 
+                }, 
+                whiteToBlack: {
+                    main: white
                 }, 
                 text: {
-                    primary: '#FFF', 
-                    secondary: '#000', 
+                    primary: darkGray, 
+                    primaryGreen: primaryGreen, 
+                    secondary: secondaryBlue, 
+                    white: white, 
+                    black: black
                 }
             }
         }, 
         dark: {
+            typography: {
+                h1Primary: {
+                    fontFamily: [
+                        "thirsty-rough-two", 
+                        "sans-serif"
+                    ].join(","), 
+                    fontSize: "2rem"
+                }, 
+                h2Secondary: {
+                    fontFamily: [
+                        "harman-sans", 
+                        "sans-serif"
+                    ].join(","), 
+                    fontSize: "4rem", 
+                    lineHeight: "1", 
+                    [desktop_media]: {
+                        fontSize: "3rem"
+                    }, 
+                    [tablet_media]: {
+                        fontSize: "2rem"
+                    }, 
+                    [mobile_media]: {
+                        fontSize: "1rem"
+                    }
+                }, 
+            }, 
             palette: {
-                primary: pink
+                primary: {
+                    main: darkGray
+                }, 
+                secondaryTwo: {
+                    main: darkGray
+                }, 
+                background: {
+                    main: black, 
+                }, 
+                whiteToBlack: {
+                    main: black
+                }, 
+                text: {
+                    primary: white, 
+                    primaryGreen: white, 
+                    secondary: white
+                }
             }
         }
     }
 });
+
+theme = responsiveFontSizes(theme);
+
+export default theme;

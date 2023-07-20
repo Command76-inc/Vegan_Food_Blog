@@ -23,13 +23,9 @@
   box-sizing: border-box;
 
   body {
-    // color: white;
     position: relative;
-    background: black;
+    background: var(--mui-palette-background-main);
     font-family: "Roboto", Arial, Helvetica, sans-serif;
-    font-family: harman-sans, sans-serif;
-    font-style: normal;
-    font-weight: 400;
     font-size: 1.2rem;
   }
 }

@@ -1,7 +1,6 @@
 $small-mobile: 415px;
 
 .home-container {
-  background-color: #FFF0AD;
 
   .intro {
     position: relative;
@@ -10,7 +9,8 @@ $small-mobile: 415px;
     font-weight: 300;
     margin: 0;
     font-size: 2em;
-    color: #2044E0;
+    background: var(--mui-palette-secondaryTwo-main);
+    color: var(--mui-palette-text-secondary);
     min-height: 600px;
     padding: 50px;
     display: flex;
@@ -73,23 +73,6 @@ $small-mobile: 415px;
   }
   
   .main {
-    background-color: #FFF7DB;
-    
-    .section {
-      .sectionHeading {
-        text-align: center;
-      }
-      div {
-        article {
-          .article {
-            padding: 20px;
-  
-            & div {
-              border: 3px solid darkgrey;
-            }
-          }
-        }
-      }
-    }
+    background-color: var(--mui-palette-whiteToBlack-main);
   }
 }

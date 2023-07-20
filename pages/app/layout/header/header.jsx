@@ -6,15 +6,17 @@ import { Banner } from "./banner/banner";
 import { 
   useMediaQuery, 
   Grid, 
+  Typography
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import Overlay from "../overlay";
+import DarkModeButton from "./dark_mode/dark_mode";
 
 function PageTitle(props) {
   return (
-    <h1 className={styles.title}>
+    <Typography variant="h1Primary" component="h1" className={styles.title}>
       {props.pagetitle ? props.pagetitle : "The Vegan Blog"}
-    </h1>
+    </Typography>
   );
 }
 
@@ -142,6 +144,7 @@ export function Header(props) {
                 <NavLinks reveal={null} />
               </Grid>
               <Grid item>
+                <DarkModeButton />
                 <SearchLogin />
               </Grid>
             </Grid>

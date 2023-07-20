@@ -1,13 +1,28 @@
 .footer {
-    border-top: 3px dashed darkgrey;
-    text-align: center;
-    padding: 20px 0;
+    background: var(--mui-palette-primary-main);
+    color: var(--mui-palette-text-white);
+    
+    .container {
+        padding: 20px;
 
-    & h2, div:last-of-type { 
-        transform: translateY(50%)
-    }
-
-    & div:first-of-type {
-        transform: translateY(25%);
+        .copyright-container {
+            position: relative;
+            display: inline-block;
+            top: 3px;
+    
+            .copyright-circle {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                border: 2px solid var(--mui-palette-text-white);
+                display: inline-block;
+            }
+    
+            .copyright-c {
+                position: relative;
+                right: 22px;
+                bottom: 7px;
+            }
+        }
     }
 }

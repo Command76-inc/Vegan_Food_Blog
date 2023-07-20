@@ -5,6 +5,7 @@ import HomePageRecipes from "./app/home_page/fetchRecipes";
 import Image from "next/Image";
 import FLOWER_1_SVG from "./public/assets/Asset1.svg";
 import BRANCH_1_SVG from "./public/assets/Branch1.svg";
+import { Typography } from "@mui/material";
 
 const title = "Home | The Vegan Blog";
 const pageTitle = "The Vegan Blog";
@@ -43,11 +44,11 @@ export default function HomePage() {
             alt="Flower"
           />
         </div>
-        <p>
+        <Typography variant="h1Primary" component="p">
           We'd like to walk along with you on your journey to a cruelty-free and
           plant-inspired lifestyle. If you want to know what to eat, we can tell
           you.
-        </p>
+        </Typography>
       </div>
 
       <main className={styles.main}>

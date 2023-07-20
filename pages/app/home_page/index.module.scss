@@ -2,16 +2,15 @@
   padding: 50px;
 
   .sectionHeading {
-    font-size: 3em;
-    color: #6C4411;
+    font-size: 3rem;
+    color: var(--mui-palette-text-primaryGreen);
     margin: 30px 0;
-    border-bottom: 10px solid #6C4411;
+    border-bottom: 4px solid var(--mui-palette-text-primaryGreen);
   }
 
   .post-container {
     padding: 30px;
-    background: var(--mui-palette-primary-main);
-    // border: 10px solid #6C4411;
+    background: var(--mui-palette-secondaryTwo-main);
     height: 100%;
     min-height: 400px;
 
@@ -20,8 +19,7 @@
       height: 100%;
 
       .title {
-        // color: green;
-        font-size: 2em;
+
       }
 
       .description {
@@ -35,7 +33,7 @@
     }
 
     .post:hover {
-      background: red;
+      // background: red;
     }
   }
 }
