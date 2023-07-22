@@ -6,7 +6,9 @@ import styles from "./footer.module.scss";
 import { 
   Grid, 
   Box, 
-  Typography 
+  Typography, 
+  IconButton, 
+  useMediaQuery, 
 } from "@mui/material";
 
 function PageTitle({ pagetitle }) {
@@ -14,12 +16,20 @@ function PageTitle({ pagetitle }) {
 }
 
 export function Footer(props) {
+  const mobileScreen = useMediaQuery("(max-width: 630px)");
+
   return (
   <footer className={styles.footer}>
-    <Grid container className={styles.container} justifyContent="space-between" sx={{ "min-height": "200px" }}>
+    <Grid 
+      container 
+      className={styles.container} 
+      justifyContent="space-between" 
+      spacing={2} 
+      direction={ mobileScreen ? "column-reverse" : "row"}
+      >
       <Grid container item className={styles["left-container"]} direction="column" justifyContent="space-between" xs>
         <Box item>
-          <Typography>Providing guidance towards a meat-free diet and cruelty-free lifestyle.</Typography>
+          <Typography className={styles["footer-phrase"]}>Providing guidance towards a meat-free diet and cruelty-free lifestyle.</Typography>
         </Box>
         <Box item>
           <Box className={styles["copyright-container"]}>
@@ -29,9 +39,32 @@ export function Footer(props) {
           <Typography variant="h1Primary">The Vegan Blog</Typography>
         </Box>
       </Grid>
-      <Grid container item className={styles["right-container"]} direction="column" justifyContent="space-between" alignItems="flex-end" xs>
-        <Box item>1</Box>
-        <Box item>2</Box>
+      <Grid 
+        container 
+        item 
+        className={styles["right-container"]} 
+        direction="column" 
+        justifyContent="space-between" 
+        alignItems={ mobileScreen ? "flex-start" : "flex-end" } 
+        xs
+        >
+        <Box item className={styles["social-container"]}>
+          <Typography variant="h1Secondary" component="h1" className={styles["follow-us"]}>Follow Us</Typography>
+          <Grid container justifyContent="space-evenly">
+            <IconButton item className={styles["social-btn"]}>
+              <i className="fa-brands fa-pinterest"></i>
+            </IconButton>
+            <IconButton item className={styles["social-btn"]}>
+              <i className="fa-brands fa-twitter"></i>
+            </IconButton>
+            <IconButton item className={styles["social-btn"]}>
+              <i className="fa-brands fa-facebook"></i>
+            </IconButton>
+          </Grid>
+        </Box>
+        <Box item>
+          <Typography className={styles.contact}>totallyvegan@theveganblog.com</Typography>
+        </Box>
       </Grid>
     </Grid>
   </footer>

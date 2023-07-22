@@ -55,7 +55,7 @@ export default function HomePagePosts() {
                   <Grid container direction="column" justifyContent="space-between" sx={{ height: "100%" }}>
                     <Grid item xs>
                       <Box sx={{ "word-break": "break-word" }}>
-                        <Typography variant="h2Secondary" className={styles.title}>{post.title}</Typography>
+                        <Typography variant="h1Secondary" className={styles.title}>{post.title}</Typography>
                         <Typography color="" className={styles.description}>{post.content}</Typography>
                       </Box>
                     </Grid>

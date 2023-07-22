@@ -7,10 +7,12 @@ import {
 import { 
   TextField, 
   Button, 
-  Grid
+  Grid, 
+  IconButton 
 } from "@mui/material";
 import { useRef, useEffect } from "react";
 import { useMediaQuery } from "@mui/material";
+import DarkModeButton from "../dark_mode/dark_mode";
 
 const navLinks = {
   home: "./",
@@ -76,10 +78,10 @@ export function SearchLogin(props) {
         </Grid>
       </Grid>
       <Grid item>
-        <Button size="small" variant="contained" className={styles.login}>
+        <DarkModeButton />
+        <IconButton size="small" variant="contained" className={styles.login}>
           <AccountCircle className={styles["login-icon"]} />
-            Login
-        </Button>
+        </IconButton>
       </Grid>
     </Grid>
   );

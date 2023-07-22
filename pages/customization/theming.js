@@ -25,12 +25,12 @@ let theme = extendedTheme({
                     ].join(","), 
                     fontSize: "2rem"
                 }, 
-                h2Secondary: {
+                h1Secondary: {
                     fontFamily: [
                         "harman-sans", 
                         "sans-serif"
                     ].join(","), 
-                    fontSize: "4rem", 
+                    fontSize: "3.5rem", 
                     lineHeight: "1", 
                     [desktop_media]: {
                         fontSize: "3rem"
@@ -98,12 +98,12 @@ let theme = extendedTheme({
                     ].join(","), 
                     fontSize: "2rem"
                 }, 
-                h2Secondary: {
+                h1Secondary: {
                     fontFamily: [
                         "harman-sans", 
                         "sans-serif"
                     ].join(","), 
-                    fontSize: "4rem", 
+                    fontSize: "3.5rem", 
                     lineHeight: "1", 
                     [desktop_media]: {
                         fontSize: "3rem"
@@ -139,6 +139,6 @@ let theme = extendedTheme({
     }
 });
 
-theme = responsiveFontSizes(theme);
+// theme = responsiveFontSizes(theme);
 
 export default theme;
