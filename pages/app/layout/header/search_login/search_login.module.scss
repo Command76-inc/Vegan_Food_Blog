@@ -25,7 +25,7 @@ $small-mobile: 415px;
   }
 
   .login {
-    background: white;
+    // background: var(--mui-palette-secondary-main);
 
     &:hover {
       background-color: seagreen;

@@ -57,8 +57,7 @@ export default function CreatePostLayout({
       ></ReplaceHead>
       <Header showBanner={router.route === "/" ? true : false} />
       {/* Include shared UI here e.g. a header or sidebar */}
-
-      {children}
+        {children}
       <Footer />
     </section>
   );

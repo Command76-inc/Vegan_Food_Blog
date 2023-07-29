@@ -1,13 +1,84 @@
-.footer {
-    border-top: 3px dashed darkgrey;
-    text-align: center;
-    padding: 20px 0;
+$tablet: 1149px;
+$mobile: 630px;
+$small-mobile: 415px;
 
-    & h2, div:last-of-type { 
-        transform: translateY(50%)
+.footer {
+    background: var(--mui-palette-primary-main);
+    color: var(--mui-palette-text-white);
+    
+    .container {
+        padding: 20px;
+
+        .footer-phrase {
+            font-family: "Roboto Condensed", sans-serif;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .copyright-container {
+            position: relative;
+            display: inline-block;
+            top: 3px;
+    
+            .copyright-circle {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                border: 2px solid var(--mui-palette-text-white);
+                display: inline-block;
+            }
+    
+            .copyright-c {
+                position: relative;
+                right: 22px;
+                bottom: 7px;
+            }
+        }
+
+        .social-container {
+            margin-bottom: 20px;
+
+            .follow-us {
+                margin-bottom: 10px;
+                font-size: 2.5rem;
+            }
+    
+            .social-btn {
+                color: var(--mui-palette-text-white);
+                font-size: 2rem;
+            }
+        }
+        
+        .contact {
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+            font-style: italic;
+            font-size: 1.3rem;
+        }
     }
 
-    & div:first-of-type {
-        transform: translateY(25%);
+    @media screen and (max-width: $tablet) {
+        .container {
+
+            .footer-phrase {
+                font-size: 1rem;
+            }
+    
+            .social-container {
+                .follow-us {
+                    font-size: 2rem;
+                }
+
+                .social-btn {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .contact {
+                font-size: 1rem;
+            }
+        }
     }
 }

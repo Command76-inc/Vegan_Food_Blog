@@ -6,15 +6,16 @@ import { Banner } from "./banner/banner";
 import { 
   useMediaQuery, 
   Grid, 
+  Typography
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import Overlay from "../overlay";
 
 function PageTitle(props) {
   return (
-    <h1 className={styles.title}>
+    <Typography variant="h1Primary" component="h1" className={styles.title}>
       {props.pagetitle ? props.pagetitle : "The Vegan Blog"}
-    </h1>
+    </Typography>
   );
 }
 
