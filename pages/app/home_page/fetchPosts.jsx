@@ -56,7 +56,7 @@ export default function HomePagePosts() {
                     <Grid item xs>
                       <Box sx={{ "word-break": "break-word" }}>
                         <Typography variant="h1Secondary" className={styles.title}>{post.title}</Typography>
-                        <Typography color="" className={styles.description}>{post.content}</Typography>
+                        <Typography color="" className={styles.description}>{post.description}</Typography>
                       </Box>
                     </Grid>
                       <div className={styles.date}><i>{`Published: ${month[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`}</i></div>

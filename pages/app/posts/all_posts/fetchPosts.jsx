@@ -45,7 +45,7 @@ export default function FetchPosts(props) {
         >
           <div className={props.className} key={el.id + "-div"}>
             <h2 key={el.id + "-h2"}>{el.title}</h2>
-            <p key={el.id + "-p"}>{postHelper.sanitizeContent(el.content)}</p>
+            <p key={el.id + "-p"}>{el.description}</p>
             <small key={el.id + "-small"}>{el.tags}</small>
           </div>
         </Link>

@@ -49,7 +49,7 @@ async function handlePostFormReq(req, res) {
           cleanedFields[value] = fields[value][0];
         }
       }
-      cleanedFields.description = postHelper.sanitizeContent(fields.content[0]).slice(0, 50);
+      cleanedFields.description = postHelper.sanitizeContent(fields.content[0]).slice(0, 500);
 
       if (err) {
         reject("error");
