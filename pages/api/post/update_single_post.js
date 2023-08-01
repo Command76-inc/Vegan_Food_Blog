@@ -19,7 +19,7 @@ async function saveFormData(fields, files) {
       $set: {
         content: fields.content,
         tags: fields.tags,
-        description: postHelper.sanitizeContent(fields.content).slice(0, 50),
+        description: fields.description,
       },
     }
   );
@@ -49,6 +49,7 @@ async function handlePostFormReq(req, res) {
           cleanedFields[value] = fields[value][0];
         }
       }
+      cleanedFields.description = postHelper.sanitizeContent(fields.description[0]).slice(0, 50);
 
       if (err) {
         reject("error");
