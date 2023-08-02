@@ -1,5 +1,6 @@
 import { Wrapper } from "../../layout/wrapper";
-import { Alert, Breadcrumbs, Typography } from "@mui/material";
+import { Alert, Breadcrumbs, TextField, Typography } from "@mui/material";
+import TextareaAutosize from "@mui/base/TextareaAutosize";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import styles from "./create_posts.module.scss";
 import { useRouter } from "next/router";
@@ -8,6 +9,7 @@ import Link from "next/link";
 
 export default function CreatePosts() {
   const [title, setTitle] = useState("Set Title");
+  const [content, setContent] = useState("");
   const [tags, setTags] = useState("Assign Tags");
   const [flash, setFlash] = useState(false);
   const [data, setData] = useState(null);
@@ -79,24 +81,32 @@ export default function CreatePosts() {
         id="publish"
         onSubmit={publish}
       >
-        <input
+        <TextField
           type="text"
           placeholder={title}
           name="title"
           id="title"
+          fullWidth 
           onChange={(e) => setTitle(e.target.value)}
         />
-        <div
+        {/* <div
           contentEditable={true}
           onChange={() => null}
           id="contentBody"
           data-text="Content goes here."
-        ></div>
-        <input
+        ></div> */}
+        <TextareaAutosize 
+          id="contentBody" 
+          onChange={(e) => setContent(e.target.value)} 
+          minRows={3} 
+          // sx={{ width: "100%" }}
+        />
+        <TextField
           type="text"
           placeholder={tags}
           name="tags"
-          id="tags"
+          id="tags" 
+          fullWidth 
           onChange={(e) => setTags(e.target.value)}
         />
       </form>

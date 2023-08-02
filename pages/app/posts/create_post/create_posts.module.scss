@@ -7,21 +7,21 @@
       width: 50%;
     }
 
-    & div {
-      margin: 20px 0;
-      background-color: white;
-      color: black;
-      font-size: small;
-      color: slategray;
-      width: 50%;
-      height: 40vw;
-      padding: 3px;
-      overflow-y: scroll;
+    // & div {
+    //   margin: 20px 0;
+    //   background-color: white;
+    //   color: black;
+    //   font-size: small;
+    //   color: slategray;
+    //   width: 50%;
+    //   height: 40vw;
+    //   padding: 3px;
+    //   // overflow-y: scroll;
 
-      &[contentEditable="true"]:empty:not(:focus):before {
-        content: attr(data-text);
-      }
-    }
+    //   &[contentEditable="true"]:empty:not(:focus):before {
+    //     content: attr(data-text);
+    //   }
+    // }
   }
 
   .publish {
