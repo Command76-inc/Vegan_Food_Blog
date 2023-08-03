@@ -110,7 +110,11 @@ function getCookTime() {
 
 export default async function insertSeedRecipeData(req, res) {
   const recipe = await db.Recipes;
-  const documents = new Array(15);
+  let n = 15;
+  if (req.query.number !== undefined) {
+    n = parseInt(req.query.number);
+  }
+  const documents = new Array(n);
   for (let i = 0; i < documents.length; i++) {
     const { ingredients: ingredients, length: length } = getIngredients();
 
