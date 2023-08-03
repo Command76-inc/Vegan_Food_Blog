@@ -134,7 +134,6 @@ export default async function insertSeedRecipeData(req, res) {
   recipe.insertMany(documents);
 
   if (req.method === "POST") {
-    console.log(res)
     if (res.statusCode !== 200) {
       res.send(
         "Something went wrong, check terminal for any potential errors being logged."
