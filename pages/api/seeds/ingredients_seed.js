@@ -4,6 +4,10 @@ function getTitle() {
 
 }
 
+function getCalories() {
+    
+}
+
 function getServingSize() {
 
 }
