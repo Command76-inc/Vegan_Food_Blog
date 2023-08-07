@@ -145,13 +145,15 @@ export default async function insertSeedRecipeData(req, res) {
 
   if (req.method === "POST") {
     if (res.statusCode !== 200) {
-      res.send(
+      return res.send(
         "Something went wrong, check terminal for any potential errors being logged."
       );
     } else {
-      res.status(200).send("Seed data should be inserted into local database");
+      return res
+        .status(200)
+        .send("Seed data should be inserted into local database");
     }
   } else {
-    res.status(400).send("Improper http method used");
+    return res.status(400).send("Improper http method used");
   }
 }
