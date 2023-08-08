@@ -13,7 +13,11 @@ async function saveFormData(fields, files) {
   // save to persistent data store
   const post = await db.Post;
 
+  console.log("FIELDS");
+  console.log(fields);
+
   post.create({
+    headerImagePath: files.headerImage ? files.headerImage[0].newFilename : undefined, 
     title: fields.title,
     content: fields.content,
     tags: fields.tags,
@@ -31,7 +35,11 @@ async function validateFromData(fields, files) {
 }
 
 async function handlePostFormReq(req, res) {
-  const form = formidable({ multiples: true });
+  const form = formidable({ 
+    multiples: true, 
+    uploadDir: './public/images', 
+    keepExtensions: true, 
+  });
 
   const formData = new Promise((resolve, reject) => {
     form.parse(req, async (err, fields, files) => {

@@ -17,6 +17,8 @@ async function saveFormData(fields, files) {
     { _id: fields.id },
     {
       $set: {
+        headerImagePath: files.headerImage ? files.headerImage[0].newFilename : undefined, 
+        title: fields.title, 
         content: fields.content,
         tags: fields.tags,
         description: fields.description,
@@ -37,7 +39,11 @@ async function validateFromData(fields, files) {
 }
 
 async function handlePostFormReq(req, res) {
-  const form = formidable({ multiples: true });
+  const form = formidable({ 
+    multiples: true, 
+    uploadDir: './public/images', 
+    keepExtensions: true, 
+  });
 
   const formData = new Promise((resolve, reject) => {
     form.parse(req, async (err, fields, files) => {
@@ -50,6 +56,7 @@ async function handlePostFormReq(req, res) {
         }
       }
       cleanedFields.description = postHelper.sanitizeContent(fields.content[0]).slice(0, 500);
+      // cleanedFields.description = "Boo"
 
       if (err) {
         reject("error");
@@ -66,6 +73,7 @@ async function handlePostFormReq(req, res) {
 
     try {
       if (cleanedFields.description !== undefined) {
+        console.log('saveFormData')
         await saveFormData(cleanedFields, files);
         res.status(200).send({ status: "submitted" });
         return;

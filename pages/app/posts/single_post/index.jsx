@@ -1,9 +1,10 @@
 import { Wrapper } from "../../layout/wrapper";
-import { Breadcrumbs, Typography } from "@mui/material";
+import { Box, Breadcrumbs, Typography } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useState, useEffect, useRef } from "react";
 import styles from "./single_post.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 
 const title = "Blog | The Vegan Blog";
 const pageTitle = "Blog";
@@ -75,6 +76,14 @@ export default function SinglePost(props) {
       ) : null}
       <main className={styles["post-container"]}>
         <h2>{data.title}</h2>
+        <div style={{ position: 'relative', width: '100%', height: '300px' }}>
+          <Image 
+            src={`/images/${data.headerImagePath}`} 
+            alt="header image" 
+            layout="fill"
+            className={styles["header-image"]}
+          />
+        </div>
         <div className={styles["content-body"]} ref={bodyContent}></div>
         <h4>Tags</h4>
         <ul>

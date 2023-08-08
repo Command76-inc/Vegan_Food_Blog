@@ -2,6 +2,11 @@
 
 .post-container {
     padding: $mainContainer;
+    
+    .header-image {
+        object-fit: cover;
+    }
+
     & > * {
         margin: 20px 0;
     }
@@ -11,5 +16,12 @@
         &:hover {
             color: gainsboro
         }
+    }
+}
+
+// update
+.container {
+    .content {
+        width: 100%;
     }
 }
