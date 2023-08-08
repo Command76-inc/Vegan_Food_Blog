@@ -29,7 +29,6 @@ export default function CreatePosts() {
     f.append("tags", tags);
     if (headerImage) {
       f.append("headerImage", headerImage);
-      // f.append("headerImagePath", headerImage.name);
     }
 
     const res = await fetch("/api/post/create_post", {
@@ -87,8 +86,6 @@ export default function CreatePosts() {
       { headerImagePreview && (
         <div style={{ position: 'relative', width: '100%', height: '300px' }}>
           <Image 
-            // ref={headerRef} 
-            // src={`/images/${headerImagePath}`} 
             src={headerImagePreview}
             alt="header image" 
             layout="fill"

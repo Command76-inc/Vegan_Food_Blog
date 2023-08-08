@@ -78,7 +78,7 @@ export default function SinglePost(props) {
         <h2>{data.title}</h2>
         <div style={{ position: 'relative', width: '100%', height: '300px' }}>
           <Image 
-            src={`/images/${data.headerImagePath}`} 
+            src={`/uploads/${data.headerImagePath}`} 
             alt="header image" 
             layout="fill"
             className={styles["header-image"]}

@@ -20,7 +20,7 @@ export default function UpdatePost() {
   const [content, setContent] = useState("");
   const [tags, setTags] = useState("Getting Tags");
   const [headerImage, setHeaderImage] = useState(null);
-  const [headerImagePath, setHeaderImagePath] = useState("");
+  const [headerImagePreview, setHeaderImagePreview] = useState("");
 
   const [isLoading, setLoading] = useState(false);
   const getIdFromUrl = () => {
@@ -52,7 +52,7 @@ export default function UpdatePost() {
         setTitle(data.title);
         setContent(data.content);
         setTags(data.tags);
-        setHeaderImagePath(`/images/${data.headerImagePath}`);
+        setHeaderImagePreview(`/uploads/${data.headerImagePath}`);
         setLoading(false);
       })
       .catch((error) => console.error("Error: ", error));
@@ -105,7 +105,7 @@ export default function UpdatePost() {
 
   // This is for image preview of header
   useEffect(() => {
-    setHeaderImagePath(headerImage ? URL.createObjectURL(headerImage) : `/images/${headerImagePath}`)
+    setHeaderImagePreview(headerImage ? URL.createObjectURL(headerImage) : `/uploads/${headerImagePreview}`)
   }, [headerImage])
 
   if (isLoading) return <p>Loading...</p>;
@@ -144,9 +144,7 @@ export default function UpdatePost() {
       >
         <div style={{ position: 'relative', width: '100%', height: '300px' }}>
           <Image 
-            ref={headerRef} 
-            // src={`/images/${headerImagePath}`} 
-            src={headerImagePath}
+            src={headerImagePreview}
             alt="header image" 
             layout="fill"
             className={styles["header-image"]}
