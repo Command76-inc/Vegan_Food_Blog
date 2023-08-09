@@ -37,7 +37,7 @@ async function validateFromData(fields, files) {
 async function handlePostFormReq(req, res) {
   const form = formidable({ 
     multiples: true, 
-    uploadDir: './public/images', 
+    uploadDir: './public/uploads', 
     keepExtensions: true, 
   });
 
