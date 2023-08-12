@@ -1,5 +1,3 @@
-// change 4
-
 import { db } from "../../../lib/db";
 
 function getTitle() {
