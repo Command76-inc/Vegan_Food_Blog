@@ -17,6 +17,10 @@ async function saveFormData(fields, files) {
     { _id: fields.id },
     {
       $set: {
+        headerImagePath: files.headerImage
+          ? files.headerImage[0].newFilename
+          : undefined,
+        title: fields.title,
         content: fields.content,
         tags: fields.tags,
         description: postHelper.sanitizeContent(fields.content).slice(0, 50),
@@ -37,7 +41,11 @@ async function validateFromData(fields, files) {
 }
 
 async function handlePostFormReq(req, res) {
-  const form = formidable({ multiples: true });
+  const form = formidable({
+    multiples: true,
+    uploadDir: "./public/uploads",
+    keepExtensions: true,
+  });
 
   const formData = new Promise((resolve, reject) => {
     form.parse(req, async (err, fields, files) => {
@@ -49,6 +57,10 @@ async function handlePostFormReq(req, res) {
           cleanedFields[value] = fields[value][0];
         }
       }
+
+      cleanedFields.description = postHelper
+        .sanitizeContent(fields.content[0])
+        .slice(0, 500);
 
       if (err) {
         reject("error");
