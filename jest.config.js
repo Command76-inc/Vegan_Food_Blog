@@ -24,7 +24,7 @@ export default {
 
     // Handle image imports
     // https://jestjs.io/docs/webpack#handling-static-assets
-    "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i":
+    "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$":
       "<rootDir>/__mocks__/fileMock.js",
 
     // Handle module aliases
@@ -32,7 +32,7 @@ export default {
     "^@/pages/(.*)$": "<rootDir>/pages/$1",
   },
   // Add more setup options before each test is run
-  // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   testEnvironment: "jsdom",
   transform: {
