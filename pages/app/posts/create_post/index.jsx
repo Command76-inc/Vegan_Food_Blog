@@ -1,14 +1,19 @@
 import { Wrapper } from "../../layout/wrapper";
-import { Alert, Breadcrumbs, Typography } from "@mui/material";
+import { Alert, Breadcrumbs, TextField, Typography } from "@mui/material";
+import { TextareaAutosize } from "@mui/base";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import styles from "./create_posts.module.scss";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/Image";
 
 export default function CreatePosts() {
-  const [title, setTitle] = useState("Set Title");
-  const [tags, setTags] = useState("Assign Tags");
+  const [headerImage, setHeaderImage] = useState(null);
+  const [headerImagePreview, setHeaderImagePreview] = useState(undefined);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [tags, setTags] = useState("");
   const [flash, setFlash] = useState(false);
   const [data, setData] = useState(null);
   const [status, setStatus] = useState(null);
@@ -19,9 +24,12 @@ export default function CreatePosts() {
 
     const f = new FormData();
 
-    f.append("title", event.target.title.value);
-    f.append("content", document.getElementById("contentBody").innerHTML);
-    f.append("tags", event.target.tags.value);
+    f.append("title", title);
+    f.append("content", content);
+    f.append("tags", tags);
+    if (headerImage) {
+      f.append("headerImage", headerImage);
+    }
 
     const res = await fetch("/api/post/create_post", {
       method: "POST",
@@ -51,6 +59,13 @@ export default function CreatePosts() {
     }
   });
 
+  useEffect(() => {
+    // Creates preview image without uploading file
+    setHeaderImagePreview(
+      headerImage ? URL.createObjectURL(headerImage) : undefined
+    );
+  }, [headerImage]);
+
   return (
     <Wrapper className={styles.container}>
       {flash && status === 200 ? (
@@ -71,32 +86,54 @@ export default function CreatePosts() {
         <Typography fontSize="large">Create Post</Typography>
       </Breadcrumbs>
       <h1>Create Post</h1>
+      {/* Uses position relative for next Image layout */}
+      {headerImagePreview && (
+        <div style={{ position: "relative", width: "100%", height: "300px" }}>
+          <Image
+            src={headerImagePreview}
+            alt="header image"
+            layout="fill"
+            className={styles["header-image"]}
+            objectFit="cover"
+          />
+        </div>
+      )}
       <form
         action="/api/post/create_post"
         method="post"
+        encType="multipart/form-data"
         className={styles["form-container"]}
         name="publish"
         id="publish"
         onSubmit={publish}
       >
         <input
+          className={styles["header-image-upload"]}
+          type="file"
+          onChange={(e) => setHeaderImage(e.target.files[0])}
+        />
+        <TextField
           type="text"
-          placeholder={title}
+          placeholder="Set title"
           name="title"
           id="title"
+          className={styles.input}
+          fullWidth
           onChange={(e) => setTitle(e.target.value)}
         />
-        <div
-          contentEditable={true}
-          onChange={() => null}
+        <TextareaAutosize
           id="contentBody"
-          data-text="Content goes here."
-        ></div>
-        <input
+          className={`${styles.content} ${styles.input}`}
+          onChange={(e) => setContent(e.target.value)}
+          minRows={10}
+        />
+        <TextField
           type="text"
-          placeholder={tags}
+          placeholder="Set tags"
           name="tags"
           id="tags"
+          className={styles.input}
+          fullWidth
           onChange={(e) => setTags(e.target.value)}
         />
       </form>

@@ -1,19 +1,25 @@
 import { Wrapper } from "../../layout/wrapper";
-import { Alert, Breadcrumbs, Typography } from "@mui/material";
+import { Alert, Breadcrumbs, TextField, Typography } from "@mui/material";
+import { TextareaAutosize } from "@mui/base";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import styles from "./single_post.module.scss";
 import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/Image";
 
 export default function UpdatePost() {
   const [flash, setFlash] = useState(false);
   const [status, setStatus] = useState(null);
   const router = useRouter();
 
-  const bodyContent = useRef(null);
+  const headerRef = useRef(null);
   const [data, setData] = useState(null);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [tags, setTags] = useState("Getting Tags");
+  const [headerImage, setHeaderImage] = useState(null);
+  const [headerImagePreview, setHeaderImagePreview] = useState("");
 
   const [isLoading, setLoading] = useState(false);
   const getIdFromUrl = () => {
@@ -41,25 +47,26 @@ export default function UpdatePost() {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
+        setTitle(data.title);
+        setContent(data.content);
         setTags(data.tags);
+        setHeaderImagePreview(`/uploads/${data.headerImagePath}`);
         setLoading(false);
       })
       .catch((error) => console.error("Error: ", error));
   }, []);
-
-  useEffect(() => {
-    if (bodyContent.current !== null) {
-      bodyContent.current.innerHTML = data.content;
-    }
-  }, [isLoading]);
 
   const publishUpdate = async (event, data) => {
     event.preventDefault();
     const f = new FormData();
 
     f.append("id", getIdFromUrl());
-    f.append("content", bodyContent.current.innerHTML);
-    f.append("tags", event.target.tags.value);
+    f.append("title", title);
+    f.append("content", content);
+    f.append("tags", tags);
+    if (headerImage) {
+      f.append("headerImage", headerImage);
+    }
 
     const res = await fetch("/api/post/update_single_post", {
       method: "PUT",
@@ -89,6 +96,15 @@ export default function UpdatePost() {
       }, 5000);
     }
   }, [status]);
+
+  // This is for image preview of header
+  useEffect(() => {
+    setHeaderImagePreview(
+      headerImage
+        ? URL.createObjectURL(headerImage)
+        : `/uploads/${headerImagePreview}`
+    );
+  }, [headerImage]);
 
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No Post Data</p>;
@@ -124,20 +140,42 @@ export default function UpdatePost() {
         id="update"
         onSubmit={publishUpdate}
       >
-        <div
-          contentEditable={true}
-          onChange={() => null}
-          id="contentBody"
-          data-text="Content goes here."
-          ref={bodyContent}
-        ></div>
+        <div style={{ position: "relative", width: "100%", height: "300px" }}>
+          <Image
+            src={headerImagePreview}
+            alt="header image"
+            layout="fill"
+            className={styles["header-image"]}
+            objectFit="cover"
+          />
+        </div>
         <input
-          type="text"
+          className={styles["header-image-upload"]}
+          type="file"
+          onChange={(e) => {
+            setHeaderImage(e.target.files[0]);
+          }}
+        />
+        <TextField
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          fullWidth
+        />
+        <TextareaAutosize
+          id="contentBody"
+          // ref={bodyContent}
+          className={`${styles.content} ${styles.input}`}
+          onChange={(e) => setContent(e.target.value)}
+          value={content}
+          minRows={10}
+        />
+        <TextField
           placeholder={tags}
           name="tags"
           id="tags"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
+          fullWidth
         />
       </form>
       <button className={styles.cancel} onClick={router.back}>

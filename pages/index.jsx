@@ -3,9 +3,10 @@ import styles from "./index.module.scss";
 import HomePagePosts from "./app/home_page/fetchPosts";
 import HomePageRecipes from "./app/home_page/fetchRecipes";
 import Image from "next/Image";
-import FLOWER_1_SVG from "./public/assets/Asset1.svg";
-import BRANCH_1_SVG from "./public/assets/Branch1.svg";
+import BRANCH_1_SVG from "../public/assets/Branch1.svg";
 import { Typography } from "@mui/material";
+
+// const BRANCH_1_SVG = "/assets/Branch1.svg";
 
 const title = "Home | The Vegan Blog";
 const pageTitle = "The Vegan Blog";
@@ -47,7 +48,7 @@ export default function HomePage() {
         <Typography variant="h1Primary" component="p">
           We'd like to walk along with you on your journey to a cruelty-free and
           plant-inspired lifestyle. If you want to know what to eat, we can tell
-          you.
+          you. Now I want to start making changes.
         </Typography>
       </div>
 
