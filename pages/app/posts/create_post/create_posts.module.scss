@@ -4,23 +4,14 @@
   padding: $mainContainer;
   .form-container {
     input {
-      width: 50%;
+      margin-bottom: 20px;
     }
 
-    & div {
-      margin: 20px 0;
-      background-color: white;
-      color: black;
-      font-size: small;
-      color: slategray;
-      width: 50%;
-      height: 40vw;
-      padding: 3px;
-      overflow-y: scroll;
-
-      &[contentEditable="true"]:empty:not(:focus):before {
-        content: attr(data-text);
-      }
+    .content {
+      width: 100%;
+      resize: none;
+      padding: 10px;
+      margin-bottom: 15px;
     }
   }
 
@@ -29,7 +20,6 @@
     display: inline;
     width: 20%;
     padding: 10px;
-    margin: 20px 5px;
     border: 1px solid darkgreen;
     background: darkgreen;
     border-radius: 10px;
@@ -47,7 +37,6 @@
     display: inline;
     width: 20%;
     padding: 10px;
-    margin: 5px;
     border: 1px solid darkgreen;
     background: silver;
     border-radius: 10px;
