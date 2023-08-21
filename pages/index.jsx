@@ -47,7 +47,7 @@ export default function HomePage() {
         <Typography variant="h1Primary" component="p">
           We'd like to walk along with you on your journey to a cruelty-free and
           plant-inspired lifestyle. If you want to know what to eat, we can tell
-          you.
+          you. asljdifa siodfj aosidj foaisdjf
         </Typography>
       </div>
 
