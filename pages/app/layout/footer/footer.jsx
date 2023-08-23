@@ -1,7 +1,3 @@
-// import { Banner } from "./banner/banner";
-// import { NavLinks } from "./navigation/navigation";
-// import { SearchLogin } from "./search_login/search_login"
-// import  styles from "./header.module.scss";
 import styles from "./footer.module.scss";
 import { 
   Grid, 
