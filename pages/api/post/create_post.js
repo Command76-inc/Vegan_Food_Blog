@@ -70,11 +70,11 @@ async function handlePostFormReq(req, res) {
     try {
       if (cleanedFields.description !== undefined) {
         await saveFormData(cleanedFields, files);
-        res.status(200).send({ status: "submitted" });
+        res.status(200).send({ status: "new post created" });
         return;
       } else {
         res.status(500).send({
-          status: "Content body must not be empty, must have text in it.",
+          status: "content body must not be empty, must have text in it.",
         });
         return;
       }
