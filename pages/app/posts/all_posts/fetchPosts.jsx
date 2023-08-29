@@ -1,8 +1,8 @@
-import { Pagination } from "@mui/material";
+import { Pagination, Box, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import React from "react";
 import Link from "next/link";
-import styles from "../posts.module.scss";
+import styles from "./all_posts.module.scss";
 import * as postHelper from "../../../utility/post_helper";
 
 export default function FetchPosts(props) {
@@ -43,11 +43,11 @@ export default function FetchPosts(props) {
           passHref
           legacyBehavior
         >
-          <div className={props.className} key={el.id + "-div"}>
-            <h2 key={el.id + "-h2"}>{el.title}</h2>
-            <p key={el.id + "-p"}>{el.description}</p>
-            <small key={el.id + "-small"}>{el.tags}</small>
-          </div>
+          <Box className={styles["fetch-posts"]}>
+            <Typography variant="h1Secondary">{el.title}</Typography>
+            <Typography>{el.description}</Typography>
+            <small>{el.tags}</small>
+          </Box>
         </Link>
       ))}
       <Pagination

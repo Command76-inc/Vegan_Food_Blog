@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../posts.module.scss";
+import styles from "./all_posts.module.scss";
 import { Breadcrumbs, Typography } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Wrapper } from "../../layout/wrapper";

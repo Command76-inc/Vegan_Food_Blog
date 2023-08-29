@@ -34,38 +34,74 @@ export default function HomePagePosts() {
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No Post Data</p>;
 
-  const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
   return (
     <section className={styles.section}>
-      <Typography variant="h1Primary" component="h1" className={styles.sectionHeading}>Latest Blog</Typography>
+      <Typography
+        variant="h1Primary"
+        component="h1"
+        className={styles.sectionHeading}
+      >
+        Latest Blog
+      </Typography>
       <Grid container spacing={5}>
         {data.map((post) => {
           const date = new Date(post.createdAt);
 
           return (
-          <Grid key={post.id} item xs={12} md={6} lg={4}>
-            <Box className={styles['post-container']}>
-              <Link
-                href={`/app/posts/single_post?id=${post.id}`}
-                passHref
-                legacyBehavior
-              >
-                <Box className={styles.post}>
-                  <Grid container direction="column" justifyContent="space-between" sx={{ height: "100%" }}>
-                    <Grid item xs>
-                      <Box sx={{ "word-break": "break-word" }}>
-                        <Typography variant="h1Secondary" className={styles.title}>{post.title}</Typography>
-                        <Typography color="" className={styles.description}>{post.content}</Typography>
-                      </Box>
+            <Grid key={post.id} item xs={12} md={6} lg={4}>
+              <Box className={styles["post-container"]}>
+                <Link
+                  href={`/app/posts/single_post?id=${post.id}`}
+                  passHref
+                  legacyBehavior
+                >
+                  <Box className={styles.post}>
+                    <Grid
+                      container
+                      direction="column"
+                      justifyContent="space-between"
+                      sx={{ height: "100%" }}
+                    >
+                      <Grid item xs>
+                        <Box className={styles.content}>
+                          <Typography
+                            variant="h1Secondary"
+                            className={styles.title}
+                          >
+                            {post.title}
+                          </Typography>
+                          <Typography color="" className={styles.description}>
+                            {post.description}
+                          </Typography>
+                        </Box>
+                      </Grid>
+                      <div className={styles.date}>
+                        <i>{`Published: ${
+                          month[date.getMonth()]
+                        } ${date.getDate()} ${date.getFullYear()}`}</i>
+                      </div>
                     </Grid>
-                      <div className={styles.date}><i>{`Published: ${month[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`}</i></div>
-                  </Grid>
-                </Box>
-              </Link>
-            </Box>
-          </Grid>
-        )})}
+                  </Box>
+                </Link>
+              </Box>
+            </Grid>
+          );
+        })}
       </Grid>
     </section>
   );
