@@ -26,7 +26,9 @@ const saveFormData = async (fields, files) => {
     directions: fields.directions,
     cook_time: fields.cook_time,
     ingredients: fields.ingredient.length,
-    dish_image_path: files.dish_image ? files.dish_image[0].newFilename : undefined,
+    dish_image_path: files.dish_image
+      ? files.dish_image[0].newFilename
+      : undefined,
   });
 };
 
@@ -58,7 +60,6 @@ const handlePostFormReq = async (req, res) => {
   });
 
   try {
-    // const processForm = async (req, res) => {
     const { fields, files } = await formData;
     const isValid = await validateFromData(fields, files);
     if (!isValid) throw Error("invalid form schema");
