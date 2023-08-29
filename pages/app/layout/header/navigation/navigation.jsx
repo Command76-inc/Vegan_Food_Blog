@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 const activeLinkStyle = {
   color: "gainsboro",
   backgroundColor: "darkgreen",
-  // cursor: "not-allowed",
 };
 
 export function NavLinks(props) {
