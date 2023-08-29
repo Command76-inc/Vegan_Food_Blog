@@ -18,12 +18,12 @@
       cursor: pointer;
       height: 100%;
 
-      .title {
+      .content {
+        word-break: break-word;
 
-      }
-
-      .description {
-        margin: 20px 0;
+        .description {
+          margin: 20px 0;
+        }
       }
 
       .date {
@@ -37,5 +37,3 @@
     }
   }
 }
-
-

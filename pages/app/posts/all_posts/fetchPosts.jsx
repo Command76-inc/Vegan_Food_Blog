@@ -1,4 +1,4 @@
-import { Pagination } from "@mui/material";
+import { Pagination, Box, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import React from "react";
 import Link from "next/link";
