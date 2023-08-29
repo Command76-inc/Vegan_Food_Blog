@@ -88,7 +88,9 @@ export default function SinglePost(props) {
           className={styles["content-body"]}
           ref={bodyContent}
         ></Typography>
-        <Typography component="h4">Tags</Typography>
+        <Typography variant="h1Secondary" component="h4">
+          Tags
+        </Typography>
         <ul>
           {data.tags.map((tag) => {
             return <li key={tag}>{tag}</li>;
