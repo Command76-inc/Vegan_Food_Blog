@@ -75,7 +75,7 @@ export default function SinglePost(props) {
         </Link>
       ) : null}
       <main className={styles["post-container"]}>
-        <h2>{data.title}</h2>
+        <Typography variant="h1Secondary">{data.title}</Typography>
         <div style={{ position: "relative", width: "100%", height: "300px" }}>
           <Image
             src={`/uploads/${data.headerImagePath}`}
@@ -84,8 +84,11 @@ export default function SinglePost(props) {
             className={styles["header-image"]}
           />
         </div>
-        <div className={styles["content-body"]} ref={bodyContent}></div>
-        <h4>Tags</h4>
+        <Typography
+          className={styles["content-body"]}
+          ref={bodyContent}
+        ></Typography>
+        <Typography component="h4">Tags</Typography>
         <ul>
           {data.tags.map((tag) => {
             return <li key={tag}>{tag}</li>;

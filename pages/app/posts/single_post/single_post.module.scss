@@ -2,6 +2,7 @@
 
 .post-container {
   padding: $mainContainer;
+  word-break: break-word;
 
   .header-image {
     object-fit: cover;
