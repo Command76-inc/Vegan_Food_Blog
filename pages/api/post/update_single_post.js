@@ -72,7 +72,6 @@ async function handlePostFormReq(req, res) {
   try {
     const { cleanedFields, files } = await formData;
     const isValid = await validateFromData(cleanedFields, files);
-    console.log(cleanedFields);
     if (!isValid) throw Error("invalid form schema");
 
     try {
