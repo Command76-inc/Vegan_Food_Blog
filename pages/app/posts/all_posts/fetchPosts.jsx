@@ -1,7 +1,8 @@
-import { Pagination, Box, Typography } from "@mui/material";
+import { Pagination, Box, Typography, Grid } from "@mui/material";
 import { useState, useEffect } from "react";
 import React from "react";
 import Link from "next/link";
+import Image from "next/Image";
 import styles from "./all_posts.module.scss";
 import * as postHelper from "../../../utility/post_helper";
 
@@ -44,9 +45,30 @@ export default function FetchPosts(props) {
           legacyBehavior
         >
           <Box className={styles["fetch-posts"]}>
-            <Typography variant="h1Secondary">{el.title}</Typography>
-            <Typography>{el.description}</Typography>
-            <small>{el.tags}</small>
+            <Grid container>
+              <Grid item>
+                <div className={styles["blog-image"]}>
+                  <Image src={`/uploads/${el.headerImagePath}`} layout="fill" />
+                  <div
+                    className={`${styles["image-border"]} ${styles["image-border-leftright"]} ${styles["right"]}`}
+                  ></div>
+                  <div
+                    className={`${styles["image-border"]} ${styles["image-border-leftright"]} ${styles["left"]}`}
+                  ></div>
+                  <div
+                    className={`${styles["image-border"]} ${styles["image-border-topbottom"]} ${styles["top"]}`}
+                  ></div>
+                  <div
+                    className={`${styles["image-border"]} ${styles["image-border-topbottom"]} ${styles["bottom"]}`}
+                  ></div>
+                </div>
+              </Grid>
+              <Grid item>
+                <Typography variant="h1Secondary">{el.title}</Typography>
+                <Typography>{el.description}</Typography>
+                <small>{el.tags}</small>
+              </Grid>
+            </Grid>
           </Box>
         </Link>
       ))}

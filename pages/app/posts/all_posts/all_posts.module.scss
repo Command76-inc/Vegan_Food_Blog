@@ -14,7 +14,8 @@
 }
 
 .fetch-posts {
-  border-bottom-style: dashed;
+  padding: 30px;
+  background: var(--mui-palette-secondaryTwo-main);
   cursor: pointer;
   margin-bottom: 50px;
   word-break: break-word;
@@ -29,5 +30,46 @@
     width: 100%;
     font-size: 1.3rem;
     margin: 0;
+  }
+
+  .blog-image {
+    position: relative;
+    width: 300px;
+    height: 300px;
+
+    .image-border {
+      position: absolute;
+      z-index: 10;
+    }
+
+    .image-border-leftright {
+      height: 100%;
+      width: 20px;
+    }
+
+    .right {
+      right: 0;
+      background: var(--mui-palette-accentPink-main);
+    }
+
+    .left {
+      left: 0;
+      background: var(--mui-palette-accentGreen-main);
+    }
+
+    .image-border-topbottom {
+      height: 20px;
+      width: 100%;
+    }
+
+    .top {
+      top: 0;
+      background: var(--mui-palette-accentGray-main);
+    }
+
+    .bottom {
+      bottom: 0;
+      background: var(--mui-palette-accentYellow-main);
+    }
   }
 }
