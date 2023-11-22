@@ -33,6 +33,12 @@ export default function Recipes(props) {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
+      data.forEach((item) => {
+        if (item.comments.length === 0) {
+          delete item.comments;
+          item.comments = "No comments";
+        }
+      });
       return data;
     }
     async function populateRecipes() {
@@ -63,7 +69,10 @@ export default function Recipes(props) {
           <Typography fontSize="large">All Recipes</Typography>
         </Breadcrumbs>
         <h2>All Recipes</h2>
-        {recipes[0].title}
+        {
+          // Seems that React doesn't like being passed an non-bool attribute as a bool
+          // May have to make db adjustment, remove empty arr and pass default in place of empty arr
+        }
       </main>
     </Wrapper>
   );
