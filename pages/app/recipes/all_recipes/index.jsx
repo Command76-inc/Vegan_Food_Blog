@@ -46,7 +46,7 @@ export default function Recipes(props) {
       setRecipes(data);
       setLoading(false);
     }
-    return populateRecipes();
+    populateRecipes();
   }, []);
 
   if (loading) {
@@ -69,10 +69,9 @@ export default function Recipes(props) {
           <Typography fontSize="large">All Recipes</Typography>
         </Breadcrumbs>
         <h2>All Recipes</h2>
-        {
-          // Seems that React doesn't like being passed an non-bool attribute as a bool
-          // May have to make db adjustment, remove empty arr and pass default in place of empty arr
-        }
+        {recipes.map((el) => (
+          <div>{el.title}</div>
+        ))}
       </main>
     </Wrapper>
   );
