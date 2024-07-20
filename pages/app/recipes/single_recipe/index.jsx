@@ -4,6 +4,7 @@ import { Wrapper } from "../../layout/wrapper";
 import styles from "../recipes.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function SingleRecipe(props) {
   const params = typeof window !== "undefined" ? window.location.search : Error;
@@ -27,6 +28,14 @@ export default function SingleRecipe(props) {
       }
     })();
   }, []);
+
+  function PrepsList(data) {
+      const steps = data.steps.map((step) => (
+        <li>{step}</li>
+      ));
+      return <ol>{steps}</ol>;
+    }
+
   return (
     <Wrapper className={props.className}>
       <main className={styles["recipes-container"]}>
@@ -43,14 +52,23 @@ export default function SingleRecipe(props) {
           <Typography fontSize="large">Single Recipe</Typography>
         </Breadcrumbs>
         <Link href="#">Update Recipe</Link>
-        <Grid container>
+        <Grid container direction="column">
           <Grid item xs={8}>
             <Grid container direction="column" style={{ height: "100%" }}>
               <Grid item>
                 <h1 style={{ background: "pink" }}>{data.title}</h1>
               </Grid>
               <Grid item>
-                <div style={{ background: "teal" }}>testing</div>
+                <Grid container>
+                  <Grid item>
+                    <div style={{ background: "teal" }}>
+                      ratings and favorited
+                    </div>
+                    {/* reviews stars go here */}
+                  </Grid>
+                  <Grid item>{/* favorite icon goes here */}</Grid>
+                  <Grid item>{/* number of times favorites goes here */}</Grid>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
@@ -100,6 +118,45 @@ export default function SingleRecipe(props) {
                     </div>
                   </Grid>
                 </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <Grid container>
+              <Grid item xs={6} style={{ minHeight: "250px" }}>
+                <Grid container direction="column">
+                  <Grid item>
+                    {/* Description goes here */}
+                    <div>Descriptions</div>
+                  </Grid>
+                  <Grid item>
+                    {/* Ingredients go here */}
+                    <div>Ingredients</div>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={6}>
+                <Grid item>
+                  <Image
+                    src={data.dish_image}
+                    width={250}
+                    height={250}
+                    alt="Picture of the author"
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <Grid container direction="row">
+              <Grid item xs={6}>
+                {/* Cooking prep goes here */}
+                <div>Prep</div>
+                {Array.isArray(data.prep) ? <PrepsList steps={data.prep} />: <p>Loading prep steps</p>}
+              </Grid>
+              <Grid item xs={6}>
+                {/* Cooking instructions go here */}
+                <div>Directions</div>
               </Grid>
             </Grid>
           </Grid>
