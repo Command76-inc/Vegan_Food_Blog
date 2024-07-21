@@ -29,4 +29,13 @@
     font-size: 1.2rem;
     white-space: pre-wrap;
   }
+
+  main { 
+    max-width: 1200px;
+    @media screen and (min-width: 1200px) {
+      margin-left: 20%;
+      margin-right: 20%;
+    }
+
+  }
 }
