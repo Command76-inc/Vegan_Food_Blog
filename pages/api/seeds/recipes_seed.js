@@ -137,7 +137,8 @@ export default async function insertSeedRecipeData(req, res) {
       // A total count of the ingredient array
       ingredients: length,
       // Points to an Amazon S3 bucket item URL
-      dish_image: "https://aws.s3.bucket.url",
+      // https://aws.s3.bucket.url
+      dish_image_path: "/uploads/81xggZbRNRL._SL1500_.jpg",
     };
   }
 
