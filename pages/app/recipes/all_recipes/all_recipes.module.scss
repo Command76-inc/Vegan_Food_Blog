@@ -1,0 +1,21 @@
+@import "pages/styles/variables.scss";
+
+.recipe-container {
+  padding: $mainContainer;
+  h3 {
+    a {
+      color: white;
+
+      &:hover {
+        color: $linkColor;
+      }
+    }
+  }
+
+  &:hover {
+    background-color: floralwhite;
+    color: darkgreen;
+    border-style: dashed;
+    cursor: pointer;
+  }
+}
